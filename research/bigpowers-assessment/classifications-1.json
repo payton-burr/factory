@@ -1,0 +1,1889 @@
+[
+  {
+    "name": "align-grid",
+    "primary": "skill",
+    "secondary": [
+      "specialist reference for impeccable",
+      "deterministic verification in the existing UI verification stage"
+    ],
+    "current": "Accepts an editorial page brief and grid parameters; generates CSS/HTML and optical-alignment JS; renders with Puppeteer; directs public image hosting and publication.",
+    "rationale": "Distinct design and measurement knowledge, not a scheduler or event policy.",
+    "reuse": "impeccable, playwright-cli, open-claude-design when a full design workflow is wanted",
+    "adaptations": "Make Swiss styling opt-in; remove Hyperagent-only tools and automatic publication; reconcile .opt-align versus scaffold selectors; verify every grid, not just the first; avoid unconditional --no-sandbox.",
+    "validation": "Missing selectors and missing overlays must fail; misalign second spread and optical headline; test font fallback, widths, keyboard access and baseline sensitivity.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/align-grid/SKILL.md#L20-L108",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/align-grid/SKILL.md#L20-L108",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/align-grid/scripts/verify_grid.js#L60-L131",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/align-grid/scripts/grid_tokens.py#L124-L158"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "standalone-method-or-utility",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "assess-impact",
+    "primary": "subagent",
+    "secondary": [
+      "Retain the analysis rubric as skill/reference material. A bounded analyst returns findings; the parent owns persistence, risk acceptance, and transition to planning."
+    ],
+    "current": "Takes a proposed symbol/module/file change. Searches dependents, Git history, stories, and tests. Writes `specs/IMPACT_LATEST.md`; lightweight mode adds a numeric risk score and a `>7` interview gate.",
+    "rationale": "A focused, mostly read-only investigation fits an analyzer better than an autonomous workflow. Reuse `codebase-analyzer`, locator, and pattern-finder capabilities rather than adding a competing exploration agent.",
+    "reuse": "A focused, mostly read-only investigation fits an analyzer better than an autonomous workflow. Reuse `codebase-analyzer`, locator, and pattern-finder capabilities rather than adding a competing exploration agent. A3.",
+    "adaptations": "Replace TypeScript-only text searches with repository-aware dependency evidence. Distinguish syntactic matches from real callers. Do not present the numeric score or “<10s” target as calibrated.",
+    "validation": "Test re-exports, dynamic callers, missing tests, net-new code, and uncertain dependencies. Parent acceptance must not depend on merely finding `Risk:` in a file.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/assess-impact/SKILL.md#L10-L92",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/assess-impact/SKILL.md#L10-L92"
+    ],
+    "partition": "B (skills-b.md S01)",
+    "boundary": "verified-implementation",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "see report section 7 role table"
+  },
+  {
+    "name": "audit-code",
+    "primary": "skill",
+    "secondary": [
+      "self-review step in shared verification",
+      "existing deterministic quality tools"
+    ],
+    "current": "Reviews changed code using churn ranking and a checklist; can fix findings; --gate describes exit verdicts and writes an audit report; --parallel creates worktrees; sets next_skill.",
+    "rationale": "The source explicitly defines self-review, not an independent reviewer role.",
+    "reuse": "qlty and existing project checks; parent implementation session owns self-review",
+    "adaptations": "Separate judgment from executable checks; do not adopt upstream-only CONVENTIONS rules or automatic fixes; preserve the actual uncommitted diff; parent owns state.",
+    "validation": "A real defect must fail the gate; check quick-mode omissions, staged/unstaged coverage, report freshness and no worktree data loss.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/audit-code/SKILL.md#L15-L38",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/audit-code/SKILL.md#L15-L38",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/audit-code/SKILL.md#L41-L137",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/scripts/lib/parallel-review-worktrees.sh#L11-L34"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "verified-implementation",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "audit-plan",
+    "primary": "skill",
+    "secondary": [
+      "Optional read-only evidence gathering. A planning workflow may consume a structured readiness result, but the conversation owns missing decisions."
+    ],
+    "current": "Accepts a plan, PRD, or existing specifications. Checks scope, vertical stories, conventions, commands, and readiness; asks questions and writes `PLAN-AUDIT_LATEST.md` with READY/NOT READY. Its hard gate precedes build skills.",
+    "rationale": "The reusable asset is a readiness method, not scheduling machinery. Reuse `create-spec` for planning conventions and existing repository reconnaissance.",
+    "reuse": "The reusable asset is a readiness method, not scheduling machinery. Reuse `create-spec` for planning conventions and existing repository reconnaissance. A1, A4.",
+    "adaptations": "Replace Bigpowers-file presence requirements with project-appropriate evidence. Missing `CONVENTIONS.md` is not intrinsically a defect in a well-documented Atomic project. Use the structured question tool.",
+    "validation": "Test imported plans, non-app repositories, missing commands, genuine N/A checks, and withheld approval.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/audit-plan/SKILL.md#L10-L90",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/audit-plan/SKILL.md#L10-L90"
+    ],
+    "partition": "B (skills-b.md S02)",
+    "boundary": "planning",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "build-epic",
+    "primary": "workflow",
+    "secondary": [
+      "story mode of one shared implementation workflow",
+      "retained planning/TDD/audit skills",
+      "separate authorized delivery boundary"
+    ],
+    "current": "Reads epic/state/status; performs threat-model, planning, branch, TDD, verification, audit, commit and release steps; updates cycle counters, timestamps, BCP and generated trace/wiki files.",
+    "rationale": "Durable story orchestration, checkpoints and remediation belong to Atomic workflows.",
+    "reuse": "goal or ralph for compatible implementation control; adversarial-verification only where its criteria fit",
+    "adaptations": "Resolve epic versus story scope, step versus current_step and missing-step threat-model bypass; single state writer; use unique DAG retry nodes; do not bundle release permission or mandatory wiki sync.",
+    "validation": "Resume at every step without duplicate commits or release; audit failure blocks; step zero cannot be skipped accidentally; reject concurrent status overwrites.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/build-epic/SKILL.md#L13-L74",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/build-epic/SKILL.md#L13-L74",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/build-epic/SKILL.md#L76-L104"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "verified-implementation",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "see report section 7 role table"
+  },
+  {
+    "name": "change-request",
+    "primary": "skill",
+    "secondary": [
+      "Release-planning parent owns writes and accepted priority changes. A deterministic calculation/schema check can support the skill."
+    ],
+    "current": "Requires a release plan. Adds or reprioritizes stories/epics, records requirement delta tags, calculates WSJF, changes YAML artifacts, and invokes status synchronization. Conversational mode confirms placement before writing.",
+    "rationale": "Mid-release change negotiation needs user judgment. It is not a worker role or a standalone lifecycle. Reuse `create-spec` and the project's existing planning artifacts.",
+    "reuse": "Mid-release change negotiation needs user judgment. It is not a worker role or a standalone lifecycle. Reuse `create-spec` and the project's existing planning artifacts. A1.",
+    "adaptations": "Resolve inconsistent flat-epic versus capsule paths. Use the reference formula (BV + TC + RR) / Job Size, not ambiguous prose precedence. Preserve stable IDs and in-progress work; validate positive job size and dependencies. Do not treat the status seeder (sync-status-from-epics.sh) as a reconciler (R3).",
+    "validation": "Confirm structured modes have the same write-approval discipline as conversational mode. Test reprioritization with in-progress stories, zero/negative job size, dependency cycles, duplicate IDs, and declined placement; no release-plan write without confirmation.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/change-request/SKILL.md#L13-L59",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/change-request/SKILL.md#L13-L59"
+    ],
+    "partition": "B (skills-b.md S03)",
+    "boundary": "planning",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "commit-message",
+    "primary": "prompt-template",
+    "secondary": [
+      "existing commit-work method",
+      "optional repo-specific semantic-release reference"
+    ],
+    "current": "Inspects Git or Jujutsu changes and intent, proposes atomic commit messages and heuristic version impact, notes defensive categories and writes a release handoff.",
+    "rationale": "A user shortcut to existing commit guidance is sufficient; no new agent or release controller.",
+    "reuse": "installed commit-work",
+    "adaptations": "Keep draft-only mode separate from permission to stage or commit; use actual release config; retain user-only attribution and signing conventions; remove automatic next_skill writes.",
+    "validation": "Mixed changes yield multiple proposed commits; draft mode leaves index/history unchanged; custom analyzer rules and breaking footers handled.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/commit-message/SKILL.md#L19-L59",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/commit-message/SKILL.md#L19-L59",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/commit-message/REFERENCE.md#L52-L75"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "delivery",
+    "adoption": "replace-with-native",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "compose-workflow",
+    "primary": "skill",
+    "secondary": [
+      "An optional template can launch the authoring conversation. Atomic's workflow SDK owns eventual execution."
+    ],
+    "current": "Interviews about a repeated sequence; writes `specs/workflows/<name>.yaml`, records decisions, and optionally adds orchestrator references. Defines four terminal states and an eight-recipe library. It authors recipes rather than providing a native executable scheduler.",
+    "rationale": "**Authoring a workflow is not itself a workflow.** Reuse Atomic's workflow documentation and builtin compositions. Bigpowers YAML recipes are useful design inputs, not executable Atomic definitions.",
+    "reuse": "**Authoring a workflow is not itself a workflow.** Reuse Atomic's workflow documentation and builtin compositions. Bigpowers YAML recipes are useful design inputs, not executable Atomic definitions. A4-A5.",
+    "adaptations": "Translate selected recipes into explicit native inputs, outputs, gates, and dependencies only after authorization. Reject the “at least eight recipes exist” verification as unrelated to the requested recipe.",
+    "validation": "Validate DAG shape, unique retry identities, terminal mappings, no automatic shipping, and no `/ship` registration collision.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/compose-workflow/SKILL.md#L13-L67",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/compose-workflow/SKILL.md#L13-L67"
+    ],
+    "partition": "B (skills-b.md S04)",
+    "boundary": "planning",
+    "adoption": "replace-with-native",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "context7-mcp",
+    "primary": "skill",
+    "secondary": [
+      "existing MCP gateway",
+      "optional existing cache, not a new extension"
+    ],
+    "current": "Resolves a library and queries docs within a three-call cap, emits CONTEXT7_UNAVAILABLE, and caches responses under .bigpowers/cache/docs.",
+    "rationale": "Tool-use and evidence discipline, not a new MCP client implementation.",
+    "reuse": "mcp discovery/describe/call and exact-version local OSS research policy",
+    "adaptations": "Resolve manifest/lockfile version and its pinned checkout first; remote current docs cannot replace required local source; cache helper stores ETags but performs no revalidation HTTP itself; avoid duplicating MCP caching.",
+    "validation": "Wrong-version, no-match, quota, timeout, stale cache and missing server cases remain explicit; unavailable docs never become verified training-data answers.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/context7-mcp/SKILL.md#L11-L57",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/context7-mcp/SKILL.md#L11-L57",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/scripts/lib/doc-fetch-cache.sh#L10-L66"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "standalone-method-or-utility",
+    "adoption": "defer",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "craft-skill",
+    "primary": "skill",
+    "secondary": [
+      "Reuse `skill-creator`, `prompt-engineer`, and installed `writing-for-agents`. Any comparative evaluation belongs to the shared maintenance workflow."
+    ],
+    "current": "Interviews, writes a skill and resources, requires naming/description/body conventions, adds upstream model frontmatter, runs validators and sync, and reviews with the user.",
+    "rationale": "Native skill authoring already exists. Keep only useful Bigpowers-specific references, such as artifact contracts, rather than a competing authoring skill.",
+    "reuse": "Native skill authoring already exists. Keep only useful Bigpowers-specific references, such as artifact contracts, rather than a competing authoring skill. A1, A9.",
+    "adaptations": "Do not port model pins, blanket imperative vocabulary, placeholder emission, mandatory 100-line limits, or sync commands. Atomic ignores unknown frontmatter fields but their text can still influence the executing model.",
+    "validation": "Validate trigger accuracy, relative resources, allowed metadata, documentation provenance, and no edits to generated mirrors.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/craft-skill/SKILL.md#L13-L109",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/craft-skill/SKILL.md#L13-L109"
+    ],
+    "partition": "B (skills-b.md S05)",
+    "boundary": "skill-maintenance",
+    "adoption": "replace-with-native",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "deepen-architecture",
+    "primary": "skill",
+    "secondary": [
+      "bounded codebase-analyzer/pattern-finder pass",
+      "optional generate-and-filter design alternatives"
+    ],
+    "current": "Explores churn and architecture, scores module depth, interviews user on candidates, edits domain vocabulary/ADRs and import-boundary declarations.",
+    "rationale": "Interactive architecture judgment remains in the parent; only bounded exploration benefits from isolation.",
+    "reuse": "how, codebase-analyzer, codebase-pattern-finder, code-simplifier for separately authorized changes",
+    "adaptations": "Do not mandate three agents or upstream shell import policy; resolve docs/adr versus specs/adr mismatch; preserve user language and existing tests until replacement coverage is proven.",
+    "validation": "Reject speculative abstractions, preserve ADR intent and behavior, compare genuinely distinct alternatives; no edits before the agreed scope.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/deepen-architecture/SKILL.md#L12-L116",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/deepen-architecture/SKILL.md#L12-L116",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/deepen-architecture/INTERFACE-DESIGN.md#L9-L44",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/deepen-architecture/DEEPENING.md#L27-L37"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "planning",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "define-language",
+    "primary": "skill",
+    "secondary": [
+      "The parent owns terminology decisions and persistence. `model-domain` consumes the glossary rather than maintaining a second incompatible one."
+    ],
+    "current": "Extracts terms from the conversation, identifies aliases and ambiguities, proposes canonical terms and relationships, and creates or updates `UBIQUITOUS_LANGUAGE_LATEST.md`.",
+    "rationale": "This is reusable domain-analysis knowledge. No isolated worker or orchestration is inherent. Reuse `create-spec` where it already captures domain terminology.",
+    "reuse": "This is reusable domain-analysis knowledge. No isolated worker or orchestration is inherent. Reuse `create-spec` where it already captures domain terminology. A1.",
+    "adaptations": "Choose one glossary location instead of adding this Markdown file alongside `product/GLOSSARY_LATEST.yaml` and terminology in `tech-stack.md`. Mark inferred cardinalities and unresolved terms.",
+    "validation": "Test conflicting meanings, partial agreement, existing glossary updates, and preservation of unrelated content.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/define-language/SKILL.md#L10-L81",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/define-language/SKILL.md#L10-L81"
+    ],
+    "partition": "B (skills-b.md S06)",
+    "boundary": "planning",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "define-success",
+    "primary": "prompt-template",
+    "secondary": [
+      "optional deprecated redirect to plan-work"
+    ],
+    "current": "A tombstone containing only a redirect to plan-work, retained for a transition release.",
+    "rationale": "There is no independent success-definition method to port. Template classification is only a compatibility disposition.",
+    "reuse": "plan-work owner and Atomic planning guidance",
+    "adaptations": "Default to no new resource unless existing users need the alias; keep it out of auto-invoked skill descriptions; give the alias an expiry.",
+    "validation": "Canonical inventory retains the exact name; alias resolves once without duplicate slash registration or invented behavior.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/define-success/SKILL.md#L1-L13",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/define-success/SKILL.md#L1-L13"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "standalone-method-or-utility",
+    "adoption": "alias-only",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "delegate-task",
+    "primary": "skill",
+    "secondary": [
+      "native subagent tool owns the fresh-context dispatch (docs/subagents.md)",
+      "shared verified-implementation workflow owns tracked retry cycles and the two-stage acceptance when durable execution is wanted (goal/ralph review-repair loops)"
+    ],
+    "current": "Builds a bounded task brief, dispatches one fresh agent, retries up to three cycles, reviews its report and then its diff, and accepts/revises/rejects. Acceptance includes merging and writing an active decision to state.",
+    "rationale": "Resolved from source: skills/delegate-task/SKILL.md steps 2-5 (L47-L90) are \"use the Agent tool with a fresh context, max 3 cycles; review the report; review the diff; accept/revise/reject\". Atomic already provides the dispatch (subagent tool), bounded review-repair loops (goal/ralph) and worktree isolation; only the depth tiers (L18-L28), the brief template (L34-L45) and the two-stage review checklist (L58-L79) are new knowledge. That is retained method, so skill is the primary owner, consistent with dispatch-agents. skills-b.md classified it workflow; integration.md section 6 says it is an execution shape Atomic already provides. This synthesis adopts the latter and records the change explicitly.",
+    "reuse": "The complete responsibility contains retries and two acceptance stages, not just a subagent role. Reuse Atomic `worker` and a shared verified-execution composition. A3-A5.",
+    "adaptations": "Do not copy `Agent` tool assumptions or append Markdown headings into YAML. Review the actual submitted candidate, including uncommitted changes, rather than assuming `main...HEAD`.",
+    "validation": "Test failed verification, report/diff disagreement, third-cycle exhaustion, scoped edits, and acceptance without unauthorized merge.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/delegate-task/SKILL.md#L11-L92",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/delegate-task/SKILL.md#L11-L92",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/delegate-task/SKILL.md#L47-L90"
+    ],
+    "partition": "B (skills-b.md S07)",
+    "resolution_note": "Changed from workflow (skills-b.md) to skill; reason recorded in rationale.",
+    "boundary": "verified-implementation",
+    "adoption": "replace-with-native",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "deploy",
+    "primary": "workflow",
+    "secondary": [
+      "deployment mode of shared delivery workflow",
+      "platform-specific existing CLI/MCP",
+      "smoke-test method"
+    ],
+    "current": "Detects build command/target from manifests and environment; builds and checks nonempty output; deploys, polls, retries and probes live URL.",
+    "rationale": "External mutation plus wait, verification and recovery needs an explicit delivery boundary.",
+    "reuse": "Atomic durable tools, native shell/MCP and verification contracts",
+    "adaptations": "Do not infer production authorization from credentials or branch; identify immutable artifact and environment; replace placeholder get_deploy_status and deploy_command; reconcile uncertain outcomes before retry; bound health requests.",
+    "validation": "Declined approval makes no external change; test deployment timeout, duplicate-submit prevention, bad artifact, accepted-but-unhealthy deployment and non-200 HTTP handling.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/deploy/SKILL.md#L11-L111",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/deploy/SKILL.md#L11-L111",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/deploy/REFERENCE.md#L29-L81"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "delivery",
+    "adoption": "decision-gated",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "see report section 7 role table"
+  },
+  {
+    "name": "design-interface",
+    "primary": "skill",
+    "secondary": [
+      "The skill owns “design it twice” methodology and dialogue. Optional bounded candidate workers own individual designs. Use `generate-and-filter` only when a tracked candidate-generation run is justified."
+    ],
+    "current": "Takes module requirements, callers, and constraints. Requires three or more parallel design agents with different constraints; presents signatures/examples, compares tradeoffs, and asks the user to select or synthesize. Explicitly excludes implementation.",
+    "rationale": "Its core is **software module/API design**, not principally frontend styling. Reuse `how` for ownership/layering and existing analyzers. Do not route it to `impeccable` solely because its name contains “interface.”",
+    "reuse": "Its core is **software module/API design**, not principally frontend styling. Reuse `how` for ownership/layering and existing analyzers. Do not route it to `impeccable` solely because its name contains “interface.” A1, A3, A5.",
+    "adaptations": "Replace obsolete `Task` calls. Treat mandatory three-agent fan-out as a methodology choice, not an Atomic requirement; inline comparison remains valid when requested.",
+    "validation": "Test genuinely distinct designs, identical requirements, practical caller examples, unresolved user choice, and zero implementation side effects.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/design-interface/SKILL.md#L10-L98",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/design-interface/SKILL.md#L10-L98"
+    ],
+    "partition": "B (skills-b.md S08)",
+    "boundary": "planning",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "develop-tdd",
+    "primary": "skill",
+    "secondary": [
+      "native tdd method",
+      "approved worker inside shared implementation workflow"
+    ],
+    "current": "Requires planned feature/bug and branch; runs vertical RED/GREEN cycles, mandates failing-test and implementation commits, stashes checkpoints, updates task/state ledgers and requests manual UAT.",
+    "rationale": "TDD is an implementation discipline; its surrounding delivery state is not a separate TDD controller.",
+    "reuse": "builtin tdd and worker/debugger",
+    "adaptations": "Explicitly reject automatic two-commit RED policy unless separately chosen; retain real failing-test evidence without committing red; remove implicit stash/drop, sync and state mutations; fix missing CI dry-run reference.",
+    "validation": "RED fails for the intended behavior, not missing dependencies; GREEN reruns same scenario; no unexpected commits/stashes; reject skipped RED checks and stale ledger evidence.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/develop-tdd/SKILL.md#L16-L137",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/develop-tdd/SKILL.md#L16-L137",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/develop-tdd/REFERENCE.md#L28-L61",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/scripts/verify-tdd-red-commit.sh#L62-L90"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "verified-implementation",
+    "adoption": "replace-with-native",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "diagnose-root",
+    "primary": "skill",
+    "secondary": [
+      "Preserve the RCA method as guidance for Atomic's `debugger`. Parent or investigation stage owns the bug artifact; verification owns the final acceptance."
+    ],
+    "current": "Defines reproduce, isolate, hypothesize, verify. Requires evidence before proposing a fix. Says it does not write a bug file, but also says to update the active bug file at every phase.",
+    "rationale": "This is a reusable diagnostic technique, not another four-stage runtime that must be nested inside every bug fix. Atomic already has a debugger that reproduces, fixes, and validates actual failures.",
+    "reuse": "This is a reusable diagnostic technique, not another four-stage runtime that must be nested inside every bug fix. Atomic already has a debugger that reproduces, fixes, and validates actual failures. A1, A3.",
+    "adaptations": "Resolve bug-file ownership and allow multiple contributing causes rather than forcing unsupported certainty about “one” cause. A diagnosis-only request must explicitly constrain the normally edit-capable debugger.",
+    "validation": "Test unreproducible failures, falsified hypotheses, partial diagnosis, and prevention of speculative patches.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/diagnose-root/SKILL.md#L10-L25",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/diagnose-root/SKILL.md#L10-L25"
+    ],
+    "partition": "B (skills-b.md S09)",
+    "boundary": "verified-implementation",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "diagnose-stall",
+    "primary": "skill",
+    "secondary": [
+      "native task/workflow observation",
+      "optional bounded inspect-only diagnostic worker"
+    ],
+    "current": "Reads state and locks, inspects terminals, classifies waits/exhaustion/I/O, recommends one recovery action and writes a stall report.",
+    "rationale": "Diagnosis is useful; another idle timer or orchestration watchdog would duplicate Atomic.",
+    "reuse": "owner-bound task status/wait, workflow activity, native control notices",
+    "adaptations": "Distinguish waiting approval, live provider work, paused and unknown; use task IDs rather than killing arbitrary PIDs; never infer failure from elapsed silence or stale YAML alone.",
+    "validation": "Long quiet provider call is not restarted; waiting approval is preserved; stop request is not reported as termination; no duplicate dispatch after reconnection.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/diagnose-stall/SKILL.md#L11-L55",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/diagnose-stall/SKILL.md#L11-L55",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/scripts/check-stale-locks.sh#L7-L40"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "verified-implementation",
+    "adoption": "replace-with-native",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "dispatch-agents",
+    "primary": "skill",
+    "secondary": [
+      "Native `subagent` owns launching and observation; parent owns decomposition and synthesis. Durable multi-wave retries belong to the shared execution workflow, not another dispatcher."
+    ],
+    "current": "Tests task independence, creates typed task briefs, dispatches parallel agents, collects evidence/diffs, integrates accepted results, and tracks three-cycle and consecutive-failure limits.",
+    "rationale": "The independence checklist is useful. The tool already provides parallel delegation, so porting an Orca-style messaging/control layer would duplicate native capabilities.",
+    "reuse": "The independence checklist is useful. The tool already provides parallel delegation, so porting an Orca-style messaging/control layer would duplicate native capabilities. A1, A3-A4.",
+    "adaptations": "Replace `Agent` calls and custom checkpoint traffic with supported native results/Intercom where needed. Separate role briefing depth from model effort.",
+    "validation": "Test overlapping files, shared database/config state, dependent tasks, silence without completion, and no duplicate launches after yielded observation.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/dispatch-agents/SKILL.md#L16-L119",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/dispatch-agents/SKILL.md#L16-L119"
+    ],
+    "partition": "B (skills-b.md S10)",
+    "boundary": "verified-implementation",
+    "adoption": "replace-with-native",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "edit-document",
+    "primary": "prompt-template",
+    "secondary": [
+      "unslop",
+      "writing-for-agents when editing agent instructions"
+    ],
+    "current": "Reads history, divides an existing document into dependency-ordered sections, confirms structure and rewrites with a 240-character paragraph limit.",
+    "rationale": "A short user-invoked editing recipe does not justify a dedicated worker, workflow or extension.",
+    "reuse": "unslop; writing-for-agents; simple-english only when appropriate",
+    "adaptations": "Make paragraph length a preference rather than a universal limit; preserve technical meaning, quotations and uncertainty; honor read-only CHANGELOG/generated files.",
+    "validation": "Diff preserves factual claims, links, identifiers and intended obligations; prohibited files remain unchanged; structural questions use the question tool.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/edit-document/SKILL.md#L10-L24",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/edit-document/SKILL.md#L10-L24"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "standalone-method-or-utility",
+    "adoption": "replace-with-native",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "elaborate-spec",
+    "primary": "skill",
+    "secondary": [
+      "Parent conversation owns decisions. A planning workflow may pause for this skill and consume its confirmed output."
+    ],
+    "current": "Refines a vague idea through questions about actors, success, constraints, and scope. After confirmation, writes `planning-context.yaml`; asks before replacing an existing context. Recommends downstream planning skills.",
+    "rationale": "Human-led clarification should stay steerable. Reuse `create-spec` rather than introducing a separate specification framework by default.",
+    "reuse": "Human-led clarification should stay steerable. Reuse `create-spec` rather than introducing a separate specification framework by default. A1, A4.",
+    "adaptations": "Preserve the explicit confirmation boundary, while avoiding questions about facts discoverable from source. Align its context schema with `run-planning`: the writer omits `written_at`, which the consumer uses for freshness.",
+    "validation": "Test stale/current context, declined replacement, multiple interpretations, and no code generation.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/elaborate-spec/SKILL.md#L11-L103",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/elaborate-spec/SKILL.md#L11-L103"
+    ],
+    "partition": "B (skills-b.md S11)",
+    "boundary": "planning",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "enforce-first",
+    "primary": "skill",
+    "secondary": [
+      "test-review rubric within tdd/audit",
+      "existing test runner"
+    ],
+    "current": "Checks F.I.R.S.T per file, offers full/quick modes, applies fixes and reruns tests; mechanical verify only checks rubric text exists.",
+    "rationale": "A reusable test-quality rubric requires judgment; grep for its name is not enforcement.",
+    "reuse": "tdd, qlty where relevant, project tests",
+    "adaptations": "Carry rubric without importing all CONVENTIONS; make quick-mode omissions explicit; no automatic fixes in read-only reviews; use runtime tests for isolation/repeatability.",
+    "validation": "Introduce order dependence, nondeterminism and missing assertions; audit must identify them; missing rubric text and actual suite failure stay distinct.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/enforce-first/SKILL.md#L13-L47",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/enforce-first/SKILL.md#L13-L47"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "verified-implementation",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "evolve-skill",
+    "primary": "workflow",
+    "secondary": [
+      "Maintenance workflow owns baseline/candidate comparison and bounded iteration. `skill-creator` owns authoring method; deterministic graders own measurable checks."
+    ],
+    "current": "Runs mechanical gates, establishes/loads a benchmark baseline, plans and edits a skill, syncs mirrors, reruns benchmarks, reverts regressions, and records an ADR/state update.",
+    "rationale": "Baseline, candidate, experiment, decision, and rollback are a genuine controlled change process. Reuse native bounded workflow execution and skill evaluation methods.",
+    "reuse": "Baseline, candidate, experiment, decision, and rollback are a genuine controlled change process. Reuse native bounded workflow execution and skill evaluation methods. A4-A5.",
+    "adaptations": "**Blocked on benchmark validity.** The upstream runner does not implement the claimed experiment. Remove automatic source rollback and generated sync. Identify candidate revision, fixture/environment, model, effort, and sampling policy.",
+    "validation": "Test regressions, inconclusive results, unavailable evaluators, baseline mismatch, held-out contamination, and iteration exhaustion. R1.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/evolve-skill/SKILL.md#L14-L37",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/evolve-skill/SKILL.md#L14-L37"
+    ],
+    "partition": "B (skills-b.md S12)",
+    "boundary": "skill-maintenance",
+    "adoption": "defer",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "see report section 7 role table"
+  },
+  {
+    "name": "execute-plan",
+    "primary": "workflow",
+    "secondary": [
+      "human-checkpoint mode of shared implementation workflow",
+      "bounded worker and verification skills"
+    ],
+    "current": "Reads active epic tasks, interprets dependencies, spawns fresh skill contexts, executes/verifies each task, asks per-step approval and updates decisions/status.",
+    "rationale": "Durable per-task human checkpoints and dependency execution belong to the runtime, not prose-driven next_skill chaining.",
+    "reuse": "Atomic stages, graph-backed human input, goal only where its autonomy matches",
+    "adaptations": "Carry full typed context/artifacts instead of state.yaml-only communication; parse explicit dependencies; preserve requested stop/reorder choices; bound repairs and keep release separate.",
+    "validation": "Pause/resume preserves approved task order; no advancement on red; missing input and cancelled question block; unique retry identities and exact remaining work.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/execute-plan/SKILL.md#L10-L56",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/execute-plan/SKILL.md#L10-L56"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "verified-implementation",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "see report section 7 role table"
+  },
+  {
+    "name": "extract-design",
+    "primary": "skill",
+    "secondary": [
+      "Retain extraction/uncertainty method. Browser sensor and token conversion are deterministic helpers. Parent owns interpretation and accepted document writes."
+    ],
+    "current": "Accepts HTML/URL; launches Puppeteer, collects computed styles in light/dark modes, classifies tokens/components, generates prose, writes `DESIGN_LATEST.md`, invokes `npx @google/design.md`, and writes a grill-me handoff.",
+    "rationale": "Reuse `impeccable`, `playwright-cli`, and relevant design workflow capabilities. A skill may bundle a script; that does not require an extension.",
+    "reuse": "Reuse `impeccable`, `playwright-cli`, and relevant design workflow capabilities. A skill may bundle a script; that does not require an extension. A1, A8.",
+    "adaptations": "**Do not port scripts unchanged.** Browser lifetime, spacing types, tests, lint exit semantics, and state updates have defects. Replacing Puppeteer with Playwright is an explicit departure from its hard gate, requiring equivalent computed-style validation. Pin browser/linter dependencies; no opportunistic `npx` downloads.",
+    "validation": "Test light/dark, pseudo-states, SPA readiness, uncertainty, offline lint, and hostile/untrusted pages. R2.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/extract-design/SKILL.md#L10-L78",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/extract-design/SKILL.md#L10-L78"
+    ],
+    "partition": "B (skills-b.md S13)",
+    "boundary": "standalone-method-or-utility",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "find-way",
+    "primary": "skill",
+    "secondary": [
+      "optional research workers",
+      "existing authorized issue-tracker tools"
+    ],
+    "current": "Creates a map issue and decision tickets with labels/dependencies; assigns work, spawns research, comments/closes tickets and graduates new decisions.",
+    "rationale": "The user-led decision-map method is not a mandate for a long-running project scheduler.",
+    "reuse": "todo for a local alternative; research-codebase and existing research agents",
+    "adaptations": "Resolve direct conflict with upstream ban on automated issues; choose tracker versus local artifact explicitly; local todo is an adaptation, not equivalent tracker dependency semantics; remove auto-fanout and obsolete /research aliases.",
+    "validation": "No tracker mutation without scope approval; refresh/claim handles concurrent edits; map creation resolves no decisions; one-ticket session rule remains visible if retained.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/find-way/SKILL.md#L13-L100",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/find-way/SKILL.md#L13-L100",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/find-way/REFERENCE.md#L33-L56",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/find-way/REFERENCE.md#L84-L90",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/CONVENTIONS.md#L38-L50"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "planning",
+    "adoption": "decision-gated",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "fix-bug",
+    "primary": "workflow",
+    "secondary": [
+      "Reuse `debugger` for the reproduction/fix loop, `tdd` for method, and a shared verification/review composition. Parent owns bug identity; publication remains separate."
+    ],
+    "current": "Owns `active_flow: fix_bug`, a five-step `bug_cycle`, investigation, RCA, TDD, validation, release, and resume. Handles reported bugs and discovered failing gates.",
+    "rationale": "Explicit lifecycle state and resumability make this a workflow.",
+    "reuse": "Explicit lifecycle state and resumability make this a workflow. A3-A5.",
+    "adaptations": "Eliminate duplicate RCA: `investigate-bug` already invokes `diagnose-root`, but the orchestrator invokes it again. Do not automatically release after validation. Keep bug and epic state separate without a shared mutable global cursor.",
+    "validation": "Test recurrence, baseline failure, interrupted repair, two concurrent bugs, and validation failure without shipping.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/fix-bug/SKILL.md#L11-L69",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/fix-bug/SKILL.md#L11-L69"
+    ],
+    "partition": "B (skills-b.md S14)",
+    "boundary": "verified-implementation",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "see report section 7 role table"
+  },
+  {
+    "name": "gate-trace",
+    "primary": "skill",
+    "secondary": [
+      "deterministic rule gate inside shared verification/delivery",
+      "bounded adversarial trace critique"
+    ],
+    "current": "Reads or regenerates trace/blind-spot inputs, applies verdict rules and confidence downgrades, invokes completeness critic, records gate and handoff.",
+    "rationale": "Retain policy as reference; executable reduction belongs to a shared workflow tool, not a new global extension or one-skill workflow.",
+    "reuse": "Atomic schema-backed results and explicit deterministic gates",
+    "adaptations": "Define complete precedence, 60-79 percent behavior, R6 inclusion and non-improving drift logic; missing inputs are not permission to merge; separate deterministic verdict from model refutation.",
+    "validation": "Truth-table every rule/threshold, simultaneous failures and corrupt/missing inputs; FAIL never upgrades to CONCERNS; critic and semantic verdict checked separately.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/gate-trace/SKILL.md#L14-L97",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/gate-trace/SKILL.md#L14-L97",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/scripts/run-gate-trace-verify.sh#L26-L35",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/scripts/lib/completeness-critic.sh#L24-L85"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "verified-implementation",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "generate-allure-report",
+    "primary": "prompt-template",
+    "secondary": [
+      "Deterministic generator owns conversion. An optional CI/reporting workflow stage invokes it; template only offers an explicit shortcut."
+    ],
+    "current": "Runs a shell/Python generator over project metadata; writes `allure-results/junit-results.xml`, `categories.json`, and `executor.json`. Incomplete stories become failed JUnit testcases. No downstream skill.",
+    "rationale": "No independent model or persistent agent is required for serialization. Do not invent an Atomic extension solely because a skill invokes code.",
+    "reuse": "No independent model or persistent agent is required for serialization. Do not invent an Atomic extension solely because a skill invokes code. A2.",
+    "adaptations": "Keep **delivery status reports** separate from actual test results. The script consumes structured `execution-status.stories`, not every flat/status representation described elsewhere.",
+    "validation": "Validate malformed/empty input, XML escaping, stable IDs, actual Allure ingestion, bug totals, and labels that cannot imply tests were executed. R6.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/generate-allure-report/SKILL.md#L10-L40",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/generate-allure-report/SKILL.md#L10-L40"
+    ],
+    "partition": "B (skills-b.md S15)",
+    "boundary": "status-reporting",
+    "adoption": "defer",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "grill-me",
+    "primary": "skill",
+    "secondary": [
+      "optional user shortcut",
+      "version-grounded docs research owned by existing docs variant"
+    ],
+    "current": "Interactive design questioning distinguishes facts from decisions; docs mode checks API assumptions; blocks implementation/spec writing until confirmation.",
+    "rationale": "A conversation-led method belongs in the parent, not a non-interactive subagent.",
+    "reuse": "ask_user_question, how/why and planning discovery",
+    "adaptations": "Consolidate docs-mode ownership with grill-with-docs rather than duplicate methods; independently discover facts; ask only needed decisions with choices; honor existing approval.",
+    "validation": "Answerable facts do not become user questions; unresolved tradeoff blocks transition; cancelling a question is not approval; no surprise specification writes.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/grill-me/SKILL.md#L10-L43",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/grill-me/SKILL.md#L10-L43",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/grill-me/REFERENCE.md#L7-L63"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "planning",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "grill-with-docs",
+    "primary": "skill",
+    "secondary": [
+      "An online researcher may gather evidence; the parent owns tradeoff questions, approval, and edits."
+    ],
+    "current": "Reads a plan, identifies assumptions about libraries/APIs, fetches official documentation, and challenges contradictions using URLs and quotations. May update the plan, but separately forbids specification generation before confirmation.",
+    "rationale": "The valuable part is version-grounded challenge and the facts-versus-decisions distinction. Reuse Atomic's web/code tools and `codebase-online-researcher`; no second MCP discovery system is needed.",
+    "reuse": "The valuable part is version-grounded challenge and the facts-versus-decisions distinction. Reuse Atomic's web/code tools and `codebase-online-researcher`; no second MCP discovery system is needed. A1, A3.",
+    "adaptations": "Resolve exact versions from lockfiles and use pinned source checkouts, not whatever current docs say. Separate evidence gathering from proposed edits to resolve its confirmation ambiguity.",
+    "validation": "Test version mismatches, inaccessible documentation, unsupported API claims, and abstention when evidence is missing.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/grill-with-docs/SKILL.md#L10-L43",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/grill-with-docs/SKILL.md#L10-L43"
+    ],
+    "partition": "B (skills-b.md S16)",
+    "boundary": "planning",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "guard-git",
+    "primary": "extension",
+    "secondary": [
+      "opt-in policy/setup reference",
+      "repository/server Git protections"
+    ],
+    "current": "Skill installs cross-client hook/settings bundles; shell helper blocks regex patterns; OMP extension adds partial branch/commit policy to bash tool_call.",
+    "rationale": "Cross-cutting pre-execution blocking is the one clear extension responsibility in this partition.",
+    "reuse": "Atomic tool_call interception and project trust; no built-in command allow/deny policy to claim as replacement",
+    "adaptations": "Do not port the monolithic discovery/command extension; reconcile absent secret/author enforcement and inconsistent landing exemption; cover command cwd, Git -C, wrappers and native tool variants; do not promise a sandbox.",
+    "validation": "Negative/positive cases for aliases, reordered flags, scripts, master default push, worktrees and protected remotes; bypass limits documented; user commands unaffected unless explicitly scoped.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/guard-git/SKILL.md#L12-L45",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/guard-git/SKILL.md#L12-L45",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/guard-git/scripts/block-dangerous-git.sh#L13-L40",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/guard-git/scripts/lib/git-guardrails-core.sh#L4-L27",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/extensions/omp-hooks.ts#L159-L183",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/extensions/omp-hooks.ts#L367-L415"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "policy-extension",
+    "adoption": "decision-gated",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "see report section 7 role table"
+  },
+  {
+    "name": "harden-vps",
+    "primary": "skill",
+    "secondary": [
+      "Retain an **opt-in runbook**, not a turnkey deployment. Human/current session owns each authorized operational scope. Only repeated fleet remediation justifies a workflow around it."
+    ],
+    "current": "Root-level Ubuntu hardening: UFW, fail2ban, upgrades, SSH, systemd, application SQLite alert rows, cron backups, and Contabo snapshots. Installs packages/CLI, changes services/network access, and handles credentials.",
+    "rationale": "One-off operations should use the simplest direct path. It is not an Atomic session-policy extension. No bundled generic infrastructure skill replaces the necessary host-specific expertise.",
+    "reuse": "One-off operations should use the simplest direct path. It is not an Atomic session-policy extension. No bundled generic infrastructure skill replaces the necessary host-specific expertise. A1, A8.",
+    "adaptations": "Quarantine executable defaults. Establish non-root/key access and recovery before changing SSH/UFW. Replace live SQLite `cp` backups with a consistent backup method; do not bypass application auth with direct database inserts. Pin and verify downloads.",
+    "validation": "Test in a disposable VM with console recovery, failed checks, restore, custom SSH ports, IPv6, and no credentials in logs. Its final success message is unconditional. R9.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/harden-vps/SKILL.md#L10-L107",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/harden-vps/SKILL.md#L10-L107"
+    ],
+    "partition": "B (skills-b.md S17)",
+    "boundary": "standalone-method-or-utility",
+    "adoption": "defer",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "hook-commits",
+    "primary": "skill",
+    "secondary": [
+      "repository-native Git hooks",
+      "existing formatter/test tools"
+    ],
+    "current": "Installs Husky/lint-staged/Prettier, writes prepare/hook/config files, runs staged formatting and automatically stages/commits setup.",
+    "rationale": "A repo setup recipe should not become an Atomic event extension just because its product is a Git hook.",
+    "reuse": "existing hooks, qlty and project formatter; commit-work only after commit authorization",
+    "adaptations": "Inspect exact versions and existing hook manager; recognize bun.lock; preserve prepare and lint-staged configuration; remove blanket staged formatting and automatic commit.",
+    "validation": "All supported package managers, existing hooks/config and absent test scripts; repeated setup is idempotent; unrelated staged files and generated files remain untouched.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/hook-commits/SKILL.md#L12-L95",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/hook-commits/SKILL.md#L12-L95"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "delivery",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "inspect-quality",
+    "primary": "skill",
+    "secondary": [
+      "Parent owns intake and registry writes. Optional locator/analyzer supplies context. Explicitly hand off an accepted bug to diagnosis."
+    ],
+    "current": "Conversational QA intake. Clarifies expected/actual behavior, starts an exploration agent, groups issues, and appends issue metadata plus detail sections to `specs/bugs/registry.yaml`. Does not itself fix them.",
+    "rationale": "User-driven QA should remain a conversation, not an autonomous review workflow. Reuse native analyzers rather than a foreign `Explore` agent type.",
+    "reuse": "User-driven QA should remain a conversation, not an autonomous review workflow. Reuse native analyzers rather than a foreign `Explore` agent type. A1, A3.",
+    "adaptations": "The “YAML” registry is specified as a Markdown table plus Markdown sections; downstream consumers expect real YAML. Choose one schema. Keep hypotheses distinct from verified root causes.",
+    "validation": "Test duplicate reports, intermittent repros, issue splitting, incomplete details, and logging without commencing repairs.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/inspect-quality/SKILL.md#L9-L107",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/inspect-quality/SKILL.md#L9-L107"
+    ],
+    "partition": "B (skills-b.md S18)",
+    "boundary": "verified-implementation",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "investigate-bug",
+    "primary": "subagent",
+    "secondary": [
+      "parent-owned intake and bug registry",
+      "diagnose-root method via bounded inspect-only debugger"
+    ],
+    "current": "Reads prior bugs, assesses security impact, invokes four-phase RCA, requires verified cause, writes TDD fix plan and registry row, recommends branch creation.",
+    "rationale": "A bounded investigation returns evidence and a fix plan well in isolated context; the parent retains user decisions and implementation authority.",
+    "reuse": "builtin debugger with an explicit no-fix investigation scope, plus history research",
+    "adaptations": "Do not use default debugger mutation behavior unchanged; parent supplies reproduction criteria and owns registry writes; retain source citations alongside durable behavioral description rather than banning paths.",
+    "validation": "Reproduce original user scenario; prove root cause by falsification; uncertain cause remains blocked; no production patch, commit or duplicate bug ID.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/investigate-bug/SKILL.md#L10-L71",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/investigate-bug/SKILL.md#L10-L71",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/investigate-bug/SKILL.md#L84-L127",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/diagnose-root/SKILL.md#L10-L21"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "verified-implementation",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "see report section 7 role table"
+  },
+  {
+    "name": "kickoff-branch",
+    "primary": "skill",
+    "secondary": [
+      "Native workflow/subagent worktree support owns isolation when already selected. Parent owns baseline and any Git approval. Reuse installed `commit-work` only when committing is authorized."
+    ],
+    "current": "Selects Git/Jujutsu, checks out/pulls default branch, offers a spec-only checkpoint commit, creates branch/worktree/workspace, records a story lock, runs preflight, and writes a TDD handoff.",
+    "rationale": "Useful VCS preparation guidance, but not another mandatory workflow. Avoid double worktree creation around native isolation.",
+    "reuse": "Useful VCS preparation guidance, but not another mandatory workflow. Avoid double worktree creation around native isolation. A1, A3-A4.",
+    "adaptations": "Do not change the primary checkout or auto-commit all `specs/` merely to start work. The story-lock snippet is non-atomic and does nothing when the lock file is absent. Resolve contradictory preflight ordering.",
+    "validation": "Test dirty primary tree, no remote/default branch, linked worktree, lock contention, and Jujutsu's supported/unsupported operations.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/kickoff-branch/SKILL.md#L15-L149",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/kickoff-branch/SKILL.md#L15-L149"
+    ],
+    "partition": "B (skills-b.md S19)",
+    "boundary": "verified-implementation",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "maintain-wiki",
+    "primary": "skill",
+    "secondary": [
+      "explicit authorized documentation generation command",
+      "read-only query/lint"
+    ],
+    "current": "INGEST runs broad skill/convention/agent-guide generation; LINT checks stale/orphan/contradictory concepts; QUERY searches generated OKF bundles.",
+    "rationale": "Keep an optional documentation maintenance method; no background auto-sync extension is needed.",
+    "reuse": "native search/read, research-codebase, existing docs build",
+    "adaptations": "Separate query/lint from mutation; no generator runs under read-only generated-file policy; prefer source references if no OKF consumer; mtime is not semantic freshness.",
+    "validation": "Queries never write; source deletion and stale links are reported; generator scope is explicit and idempotent in a future authorized test; no unrelated mirrors change.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/maintain-wiki/SKILL.md#L13-L66",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/maintain-wiki/SKILL.md#L13-L66"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "skill-maintenance",
+    "adoption": "defer",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "map-codebase",
+    "primary": "subagent",
+    "secondary": [
+      "Reuse analyzer and pattern-finder roles. Worker returns a cited architecture report; parent decides where to persist or update it. Retain a short research rubric."
+    ],
+    "current": "Scans manifests and source, maps entrypoints/data flow, examines errors/APIs/testing/observability, and writes `specs/tech-architecture/tech-stack.md`. Distinguishes building that document from consuming existing context.",
+    "rationale": "This is a bounded research deliverable that benefits from isolated context. Prefer the existing `research-codebase` skill and specialists over a second architecture mapper.",
+    "reuse": "This is a bounded research deliverable that benefits from isolated context. Prefer the existing `research-codebase` skill and specialists over a second architecture mapper. A3.",
+    "adaptations": "Resolve dependency versions using lockfiles, distinguish observations from recommended changes, and use commit identity for freshness. Do not overwrite domain-language content placed in the same file by `model-domain`.",
+    "validation": "Test monorepos, mixed architectures, missing tests, undocumented entrypoints, and contradictory existing docs.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/map-codebase/SKILL.md#L10-L72",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/map-codebase/SKILL.md#L10-L72"
+    ],
+    "partition": "B (skills-b.md S20)",
+    "boundary": "verified-implementation",
+    "adoption": "replace-with-native",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "see report section 7 role table"
+  },
+  {
+    "name": "migrate-spec",
+    "primary": "skill",
+    "secondary": [
+      "preview/diff and schema checks",
+      "optional bounded extraction worker"
+    ],
+    "current": "Detects foreign spec layouts, interviews on ambiguity, maps artifacts and IDs into specs, writes trace files and regenerates state; reference also writes CLAUDE.md.",
+    "rationale": "One-off, interactive transformation fits a skill; a permanent migration controller adds little.",
+    "reuse": "read/search/edit, research-codebase and existing spec validation",
+    "adaptations": "Resolve never-overwrite versus regenerate-state contradiction; preserve foreign sources, active execution history and user config; present all output paths including CLAUDE.md; adapt to actual artifact layout.",
+    "validation": "Multiple/partial fingerprints, mixed IDs, collisions, active work, refusal and merge choices; unchanged sources and idempotent second pass; no lost state.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/migrate-spec/SKILL.md#L20-L111",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/migrate-spec/SKILL.md#L20-L111",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/migrate-spec/REFERENCE.md#L183-L185",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/migrate-spec/REFERENCE-GSD.md#L93-L131"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "planning",
+    "adoption": "defer",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "model-domain",
+    "primary": "skill",
+    "secondary": [
+      "`define-language` owns glossary structure; this skill owns domain decisions and invariants. Parent owns accepted edits and ADR creation."
+    ],
+    "current": "Interviews against the domain model, records invariants/state machines and terminology, cross-checks source, writes context updates and ADRs, and audits shared-state concurrency risks.",
+    "rationale": "Conversation-led domain modeling is a method, not a autonomous worker. Reuse `create-spec`, `how`, and `why` according to whether the question concerns proposed behavior, runtime ownership, or rationale.",
+    "reuse": "Conversation-led domain modeling is a method, not a autonomous worker. Reuse `create-spec`, `how`, and `why` according to whether the question concerns proposed behavior, runtime ownership, or rationale. A1.",
+    "adaptations": "Resolve contradictory ownership of `tech-stack.md`, `CONTEXT.md`, and glossary content. The ADR reference says `docs/adr`, while the skill says `specs/adr`. Do not infer multiple bounded contexts merely from the existence of a tech-stack document.",
+    "validation": "Test terminology conflict, invariant counterexamples, ADR numbering, and concurrent edits.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/model-domain/SKILL.md#L10-L99",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/model-domain/SKILL.md#L10-L99"
+    ],
+    "partition": "B (skills-b.md S21)",
+    "boundary": "planning",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "orchestrate-project",
+    "primary": "workflow",
+    "secondary": [
+      "optional project coordinator composing planning/implementation/delivery",
+      "methodology references"
+    ],
+    "current": "Owns a six-phase lifecycle, state counters, hard gates, model-frontmatter spawning, story sequencing, confirmation and release snapshots.",
+    "rationale": "This is explicit durable orchestration, but only appropriate for genuinely multi-phase projects.",
+    "reuse": "Atomic workflow composition and existing goal/ralph patterns where contracts match",
+    "adaptations": "Never import upstream model pins or build a second YAML scheduler; replace arbitrary time estimates and scores; reconcile per-story release versus later project verify/release; no auto-approval of external effects.",
+    "validation": "Resume each phase, reject missing evidence, preserve human stops and inline override; ensure one release owner and acyclic bounded repair topology.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/orchestrate-project/SKILL.md#L9-L68",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/orchestrate-project/SKILL.md#L9-L68",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/orchestrate-project/REFERENCE.md#L7-L77"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "project-coordination",
+    "adoption": "decision-gated",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "see report section 7 role table"
+  },
+  {
+    "name": "organize-workspace",
+    "primary": "skill",
+    "secondary": [
+      "Parent conversation owns approval and mutation. Optional read-only inventory helper is unnecessary for small projects."
+    ],
+    "current": "Inventories candidate junk and loose assets, proposes exact deletes/moves, obtains approval, executes, verifies, and separately proposes `.gitignore` edits. Explicitly excludes secrets and dependency/VCS directories.",
+    "rationale": "The classification and safety method is useful and already appropriately interactive. Keep it as a skill, not automatic cleanup hooks.",
+    "reuse": "The classification and safety method is useful and already appropriately interactive. Keep it as a skill, not automatic cleanup hooks. A1.",
+    "adaptations": "Honor the local read-only rule for generated files even where upstream calls build outputs disposable. Resolve paths/symlinks, preserve active processes and user drafts, and prefer recoverable operations.",
+    "validation": "Test declined/item-level approval, tracked files, secrets, symlink escapes, partial failure, and `.gitignore` rules that must not hide real source.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/organize-workspace/SKILL.md#L9-L78",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/organize-workspace/SKILL.md#L9-L78"
+    ],
+    "partition": "B (skills-b.md S22)",
+    "boundary": "standalone-method-or-utility",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "plan-refactor",
+    "primary": "skill",
+    "secondary": [
+      "create-spec method",
+      "bounded architecture/test research"
+    ],
+    "current": "Interviews user, validates repo assertions, captures invariants/scope/testing decisions and a tiny-green-commit refactor plan in REFACTOR_LATEST.md.",
+    "rationale": "Planning and invariant discovery are a reusable parent-led method, not execution of the commits.",
+    "reuse": "create-spec, how, codebase-analyzer/pattern-finder",
+    "adaptations": "Keep source evidence and current paths in an appendix rather than the blanket path ban; avoid overwriting unrelated LATEST plan; no automatic branch/commit actions.",
+    "validation": "Every step has a runnable behavior-preserving verify; characterize untested behavior first; out-of-scope decisions and invariants stay intact.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/plan-refactor/SKILL.md#L9-L79",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/plan-refactor/SKILL.md#L9-L79"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "planning",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "plan-release",
+    "primary": "skill",
+    "secondary": [
+      "Shared planning workflow owns sequencing. This skill should own **release index composition**; `plan-work` should own detailed implementation tasks."
+    ],
+    "current": "Requires clear scope; creates a release index, epic manifests, story specifications, task files, execution status, WSJF ordering, and BCP metadata. May snapshot an approved plan. Says semantic-release owns the actual version.",
+    "rationale": "Useful release-planning method, but not necessarily an independent long-running process. Reuse project planning and `create-spec`; retain capsules only where useful.",
+    "reuse": "Useful release-planning method, but not necessarily an independent long-running process. Reuse project planning and `create-spec`; retain capsules only where useful. A1, A4.",
+    "adaptations": "Its “index builder, not task writer” description conflicts with its output/process requirements to write task files. Resolve that explicitly. Avoid adopting semantic-release, BCP, fixed 20-section specs, or security WSJF boosts silently.",
+    "validation": "Test stable IDs, dependency-safe ordering, absent sizing, approved snapshots, and no release/publish action.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/plan-release/SKILL.md#L9-L145",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/plan-release/SKILL.md#L9-L145"
+    ],
+    "partition": "B (skills-b.md S23)",
+    "boundary": "planning",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "plan-tests",
+    "primary": "skill",
+    "secondary": [
+      "optional bounded test-design specialist",
+      "planning-stage artifact"
+    ],
+    "current": "Maps epic stories to P0-P3 scenarios, test levels, fixtures and NFR commands; emits a test plan with mandatory scenario IDs and plan-work handoff.",
+    "rationale": "Test architecture is reusable planning knowledge; routine invocation needs neither another workflow nor mandatory agent.",
+    "reuse": "tdd, create-spec and project testing patterns",
+    "adaptations": "Fix REFERENCE ID format and hardcoded e32 verify; do not silently waive required NFRs under --lite; fixture choices follow actual pinned stack; remove model pin.",
+    "validation": "Scenario IDs join to stories and acceptance criteria; P0 behaviors covered; commands run in correct environment; no test or production code written during planning.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/plan-tests/SKILL.md#L10-L42",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/plan-tests/SKILL.md#L10-L42",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/plan-tests/REFERENCE.md#L3-L31"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "planning",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "plan-work",
+    "primary": "skill",
+    "secondary": [
+      "Planning workflow owns transitions; skill owns plan quality. Reuse `create-spec`; analyzers can support targeted exploration. Deterministic validators check accepted schemas."
+    ],
+    "current": "Reads scope, release, capsule, architecture, and glossary artifacts; investigates impact and dependencies; writes detailed story specs and task YAML with verification/risk/security metadata. Runs consistency checking and reviews with the user. Writes `handoff.next_skill`.",
+    "rationale": "Planning expertise belongs in reusable instructions. `plan-work` is a stage inside planning, not a reason to create another scheduler.",
+    "reuse": "Planning expertise belongs in reusable instructions. `plan-work` is a stage inside planning, not a reason to create another scheduler. A1, A4.",
+    "adaptations": "Reconcile `todo` versus `failing` task states and 20-section requirements. Remove mandatory model-bearing exploration and upstream timing hooks. Validate actual active-capsule paths; its generic verify selects the first sorted capsule. A “verify” string's syntax is not execution evidence.",
+    "validation": "Test before/after requirement deltas, locked sections, missing `spec:` links, and runnable project-specific checks. R4.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/plan-work/SKILL.md#L17-L100",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/plan-work/SKILL.md#L17-L100"
+    ],
+    "partition": "B (skills-b.md S24)",
+    "boundary": "planning",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "publish-package",
+    "primary": "workflow",
+    "secondary": [
+      "registry mode of shared delivery workflow",
+      "registry-specific tool checks"
+    ],
+    "current": "Detects registry, checks prerequisites/version/build, publishes and checks registry visibility; describes dry-run and bypass options.",
+    "rationale": "Irreversible external publication belongs behind explicit durable delivery gates, not automatic skill continuation.",
+    "reuse": "Atomic durable tools and separate post-approval final actions",
+    "adaptations": "Remove TestPyPI upload from dry-run, no-verify bypass and CHANGELOG edit instruction; specify package/version/registry/visibility; immutable artifact and reconciliation before retry; validate actual tool versions.",
+    "validation": "Dry-run emits no remote write; refused approval does not publish; duplicate version, partial failure, wrong registry and stale artifact block; resumed publish is not duplicated.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/publish-package/SKILL.md#L10-L71",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/publish-package/SKILL.md#L10-L71",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/publish-package/REFERENCE.md#L24-L31",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/publish-package/REFERENCE.md#L100-L117",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/publish-package/REFERENCE.md#L249-L259"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "delivery",
+    "adoption": "decision-gated",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "see report section 7 role table"
+  },
+  {
+    "name": "quick-fix",
+    "primary": "prompt-template",
+    "secondary": [
+      "Template provides an explicit shortcut. Reusable eligibility guidance belongs in the bug-fix method. Current session owns the edit; larger problems route to normal diagnosis without hidden workflow launch when inline was requested."
+    ],
+    "current": "Explicit fast path for data-only changes: at most one file/five lines, no logic/API/refactoring, one assertion. Applies the edit, verifies, commits and amends, then invokes release.",
+    "rationale": "This is a user-selected reduction in ceremony, not a new worker or control plane.",
+    "reuse": "This is a user-selected reduction in ceremony, not a new worker or control plane. A2, A4.",
+    "adaptations": "Remove automatic commit/amend/release. “Data only” does not imply low risk for auth, money, URLs, or production config. Require a before/after reproduction and real failing exit semantics; the sample `... || echo \"FIX FAILED\"` exits successfully.",
+    "validation": "Test boundary counts, logic disguised as configuration, failed assertion, unrelated dirty files, and escalation without unapproved rollback.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/quick-fix/SKILL.md#L12-L102",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/quick-fix/SKILL.md#L12-L102"
+    ],
+    "partition": "B (skills-b.md S25)",
+    "boundary": "verified-implementation",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "release-branch",
+    "primary": "workflow",
+    "secondary": [
+      "branch-integration mode of shared delivery workflow",
+      "commit-work plus verification/trace/security inputs"
+    ],
+    "current": "Runs gates, selects solo/PR/keep/discard, may squash/commit/push/merge, archives epics, waits CI, removes worktrees and branches, updates release state.",
+    "rationale": "Multiple external and destructive effects need a distinct authorized delivery boundary.",
+    "reuse": "Atomic final-action separation, durable tools, native Git/gh and existing commit-work",
+    "adaptations": "No solo default when unsure; independently authorize commit/push/PR/merge/tag/publish/cleanup; no auto force-remove; fix CI-unverified success and cancelled-run handling; audit landing fallback status.",
+    "validation": "Decline each action; dirty worktree preserved; protected-branch rejection, failed push, cancelled CI and missing gh never report released; no replayed mutations.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/release-branch/SKILL.md#L19-L142",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/release-branch/SKILL.md#L19-L142",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/scripts/land-branch.sh#L100-L165",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/scripts/land-branch.sh#L195-L206",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/scripts/lib/land-branch-push.sh#L39-L105",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/scripts/wait-for-ci.sh#L40-L111"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "delivery",
+    "adoption": "decision-gated",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "see report section 7 role table"
+  },
+  {
+    "name": "request-review",
+    "primary": "workflow",
+    "secondary": [
+      "Reviewers are bounded fresh-context workers; deterministic workflow logic owns the decision. Repair worker cannot approve its own repair. Human owns integration authority."
+    ],
+    "current": "Dispatches two independent reviewers, requires both to pass with zero must-fix findings and score ≥94%, sends failures to repair, and repeats. Declares a five-round cap but later says three rounds. Optional dimension-specific reviewers supplement the pair.",
+    "rationale": "Independence, fan-out, aggregation, and bounded repair are workflow responsibilities. Reuse `adversarial-verification` patterns, but not its different default scoring rules without an explicit decision.",
+    "reuse": "Independence, fan-out, aggregation, and bounded repair are workflow responsibilities. Reuse `adversarial-verification` patterns, but not its different default scoring rules without an explicit decision. A3-A5.",
+    "adaptations": "Resolve three-versus-five rounds and undefined `total_items`/zero denominators. Recommend criterion-based evidence and vetoes instead of uncalibrated percentages. Keeping mandatory dual review is a separate cost/methodology choice.",
+    "validation": "Test one-pass/one-fail, missing report, contradictory evidence, reviewer blindness, stale diffs, exact cap exhaustion, and no merge on incomplete review.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/request-review/SKILL.md#L15-L117",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/request-review/SKILL.md#L15-L117"
+    ],
+    "partition": "B (skills-b.md S26)",
+    "boundary": "verified-implementation",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "see report section 7 role table"
+  },
+  {
+    "name": "research-first",
+    "primary": "skill",
+    "secondary": [
+      "existing codebase and online research agents",
+      "prior-art artifact in planning"
+    ],
+    "current": "Searches repo, skills, package registries, opensrc cache and web; records adopt/extend/compose/build decision in scope/story notes.",
+    "rationale": "Prior-art selection is a reusable evidence method, not a new search engine or control flow.",
+    "reuse": "research-codebase, codebase-online-researcher, native web/code/MCP tools",
+    "adaptations": "Replace opensrc/npx fallback with required exact-version OSS checkouts; inspect native skill catalog rather than regenerate a Bigpowers index; do not append Markdown syntax into YAML incorrectly.",
+    "validation": "Candidates have exact versions and source links; unavailable evidence stays explicit; no package installs or generated index writes; decision explains why existing capability is insufficient.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/research-first/SKILL.md#L13-L56",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/research-first/SKILL.md#L13-L56",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/research-first/REFERENCE.md#L3-L29"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "planning",
+    "adoption": "replace-with-native",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "reset-baseline",
+    "primary": "prompt-template",
+    "secondary": [
+      "Current session owns the operation. Benchmark workflows should use disposable owned checkouts rather than resetting the user's working tree."
+    ],
+    "current": "Inspects Git state, asks stash/discard/keep, proposes `git stash push -u`, then reruns environment setup and baseline tests. Explicitly forbids unapproved destructive reset.",
+    "rationale": "An explicit, infrequent operational shortcut is sufficient. No new reset agent, extension, or lifecycle is justified.",
+    "reuse": "An explicit, infrequent operational shortcut is sufficient. No new reset agent, extension, or lifecycle is justified. A2.",
+    "adaptations": "Preserve tracked, untracked, ignored, submodule, and concurrent-agent work. “Safe stash” still changes the workspace and omits ignored files. Separate restoration from dependency installation.",
+    "validation": "Test declined approval, partial stash failure, dirty worktrees, restoration, and no force-push.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/reset-baseline/SKILL.md#L10-L22",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/reset-baseline/SKILL.md#L10-L22"
+    ],
+    "partition": "B (skills-b.md S27)",
+    "boundary": "standalone-method-or-utility",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "respond-review",
+    "primary": "skill",
+    "secondary": [
+      "bounded repair stage of shared implementation workflow",
+      "worker/debugger for scoped fixes"
+    ],
+    "current": "Reads all findings, classifies must/should/consider, asks on design suggestions, applies fixes, reruns suite and reports dispositions.",
+    "rationale": "Feedback handling is a method; control/retry stays with the existing review loop.",
+    "reuse": "goal/ralph repair contracts, worker and debugger",
+    "adaptations": "Reproduce disputed bugs before fixing; preserve original acceptance criteria; record fix/disagree/defer decisions for all findings; do not infer commit or merge authorization.",
+    "validation": "No silently dropped finding; skipped fixes have reasons; tests run on final candidate; architecture decisions return to parent; no contract drift across rounds.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/respond-review/SKILL.md#L9-L72",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/respond-review/SKILL.md#L9-L72"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "verified-implementation",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "run-benchmark",
+    "primary": "workflow",
+    "secondary": [
+      "Workflow owns isolated experiment runs and budgets; deterministic graders own objective scoring. Optional independent rubric evaluator has a fixed contract. Reuse `skill-creator` evaluation machinery where it meets the experiment."
+    ],
+    "current": "Claims N-run with/without-skill experiments, train/validation separation, rubric/code graders, weighted “pass@k,” JSON/YAML reports, baselines, and release thresholds. Actual script repeatedly runs shell graders and fabricates the no-skill condition.",
+    "rationale": "Actual comparative agent evaluation requires run identity, isolation, repeatable conditions, artifacts, and bounded execution.",
+    "reuse": "Actual comparative agent evaluation requires run identity, isolation, repeatable conditions, artifacts, and bounded execution. A4.",
+    "adaptations": "Do not port the existing runner as evidence infrastructure. Implementing the stated experiment would be a separate future task. Correct metric terminology, run real controls, grade stored results once, define inconclusive/error outcomes, and enforce exit status.",
+    "validation": "Test negative controls, state contamination, missing rubrics, nonzero graders printing PASS, and baseline protection. R1.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/run-benchmark/SKILL.md#L12-L88",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/run-benchmark/SKILL.md#L12-L88"
+    ],
+    "partition": "B (skills-b.md S28a)",
+    "boundary": "skill-maintenance",
+    "adoption": "defer",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "see report section 7 role table"
+  },
+  {
+    "name": "run-evals",
+    "primary": "skill",
+    "secondary": [
+      "deterministic repeated checks in existing verification workflow",
+      "separately configured rubric-grader role"
+    ],
+    "current": "Defines capability/regression evals, grader type, stability tiers and promotion rules; repeats runs, reports pass@k and blocks required failures.",
+    "rationale": "The useful part is evaluation design; native tools and existing workflows can execute repetitions.",
+    "reuse": "skill-creator/prompt-engineer where applicable; Atomic verification and adversarial-verification only with a matching rubric",
+    "adaptations": "Rename successes/k and all-k reliability instead of misusing pass@k; align tier wording and fixtures; calibrate model graders; preserve individual runs and flake history.",
+    "validation": "Seed known regressions and grader mistakes; expected tier transitions and missing-run handling; failed required eval blocks; no model-selected score substitutes for command status.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/run-evals/SKILL.md#L11-L39",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/run-evals/SKILL.md#L11-L39",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/run-evals/REFERENCE.md#L3-L37"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "skill-maintenance",
+    "adoption": "defer",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "run-planning",
+    "primary": "workflow",
+    "secondary": [
+      "Compose the conversation-led planning skills. One native workflow owns runtime state; durable product documents remain separate outputs."
+    ],
+    "current": "Drives a resumable discovery checklist through survey, scope, research, optional elaboration, release planning, and slicing. Writes `planning-status.yaml`, `active_flow`, and `handoff.next_skill`; deletes the planning context on completion.",
+    "rationale": "This really is an orchestration responsibility: pending steps, optional branches, resume, and handoffs.",
+    "reuse": "This really is an orchestration responsibility: pending steps, optional branches, resume, and handoffs. A4.",
+    "adaptations": "Resolve the bootstrap contradiction: it advertises brand-new initiatives but requires an already-registered epic/story. Replace wall-clock-only context freshness with artifact identity and confirmed scope. Retain context rather than deleting it by default.",
+    "validation": "Test fresh start, partial resume, declined optional steps, stale approvals, and no repeated scope/slicing work.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/run-planning/SKILL.md#L11-L101",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/run-planning/SKILL.md#L11-L101"
+    ],
+    "partition": "B (skills-b.md S28)",
+    "boundary": "planning",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "see report section 7 role table"
+  },
+  {
+    "name": "scope-work",
+    "primary": "skill",
+    "secondary": [
+      "create-spec scope section",
+      "planning-stage artifact"
+    ],
+    "current": "Reads planning context and prior specs, interviews for goal/exclusions/constraints, writes bounded SCOPE_LATEST.yaml and maps in-scope work to future story IDs.",
+    "rationale": "Reusable scope definition belongs with planning knowledge, not a separate workflow for each artifact.",
+    "reuse": "create-spec and native question tool",
+    "adaptations": "Preserve existing user answers and paths; resolve product versus requirements layout; allow explicit deferred mappings before IDs exist; avoid introducing mandatory Bigpowers YAML in every project.",
+    "validation": "Each requirement is observable and mapped/deferred; exclusions have reasons; no implementation detail masquerades as user need; existing scope is not clobbered.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/scope-work/SKILL.md#L13-L64",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/scope-work/SKILL.md#L13-L64"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "planning",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "search-skills",
+    "primary": "prompt-template",
+    "secondary": [
+      "Native skill catalog owns discovery and identity. Parent owns intent matching. Optional explicit shortcut asks for a recommendation without auto-installing anything."
+    ],
+    "current": "Builds/refreshes a lexical Markdown index, searches with `rg`, ranks top candidates, recommends one, and invokes it. Says the index includes phase/triggers, although the generator writes name/model/truncated description rows.",
+    "rationale": "Atomic already exposes names/descriptions and source-qualified skills. Replace the separate generated index rather than porting it.",
+    "reuse": "Atomic already exposes names/descriptions and source-qualified skills. Replace the separate generated index rather than porting it. A1-A2.",
+    "adaptations": "No generated-file writes, external embeddings, or model-policy inference from index fields. Separate “recommend” from “run.”",
+    "validation": "Test duplicate names, disabled/project-untrusted skills, reload freshness, no match, and user intent not authorizing the recommended action. R7.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/search-skills/SKILL.md#L13-L74",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/search-skills/SKILL.md#L13-L74"
+    ],
+    "partition": "B (skills-b.md S29)",
+    "boundary": "skill-maintenance",
+    "adoption": "replace-with-native",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "security-review",
+    "primary": "subagent",
+    "secondary": [
+      "threat-model guidance skill",
+      "parent-owned exception and release gate"
+    ],
+    "current": "Resolves git diff, researches security context, traces dataflow, filters confidence/exclusions, writes findings or epic threat model; uses detached review worktree helper.",
+    "rationale": "An independent, bounded security assessment benefits from isolated context; it must not own remediation or release permission.",
+    "reuse": "compose native analyzer/research/debugger-inspect roles; Atomic has no generic bundled security reviewer",
+    "adaptations": "Replace unsafe blanket exclusions for prompt injection/docs/ReDoS/Rust/etc.; do not hide uncertain high-impact findings; explicit base/head/uncommitted patch; threat modeling must work before code exists; correct unsafe guidance examples.",
+    "validation": "Positive/negative fixtures plus prompt injection, path-prefix collision, unsafe Rust/FFI, operational abuse and uncommitted-only vulnerabilities; reports bound to exact diff; exceptions need human sign-off.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/security-review/SKILL.md#L26-L120",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/security-review/SKILL.md#L26-L120",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/security-review/REFERENCE-false-positives.md#L6-L61",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/security-review/REFERENCE-vuln-categories.md#L54-L65",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/scripts/lib/parallel-review-worktrees.sh#L11-L34"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "verified-implementation",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "see report section 7 role table"
+  },
+  {
+    "name": "seed-conventions",
+    "primary": "skill",
+    "secondary": [
+      "Reuse installed `writing-for-agents` and existing Atomic context-file conventions. Parent owns adopted policy and exact file changes."
+    ],
+    "current": "Interviews, generates AGENTS/CLAUDE/CONVENTIONS files, optional tool configs/symlinks, many specification files, default workflow mode, and fenced managed sections. Applies strict Agentic STE checks.",
+    "rationale": "Interactive convention authoring is reusable guidance. It must not become installation/bootstrap automation that imposes a new methodology.",
+    "reuse": "Interactive convention authoring is reusable guidance. It must not become installation/bootstrap automation that imposes a new methodology. A1, A7, A9.",
+    "adaptations": "Infer existing commands first. Preserve user prose, existing files, symlink targets, and settings. Do not seed empty files merely to satisfy presence checks or inject “no direct coding,” solo landing, or attribution suppression. Resolve optional AGENTS output versus mandatory canonical AGENTS/symlink instructions.",
+    "validation": "Test existing handwritten sections, absent fences, read-only/generated files, and Windows symlink failure.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/seed-conventions/SKILL.md#L17-L120",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/seed-conventions/SKILL.md#L17-L120"
+    ],
+    "partition": "B (skills-b.md S30)",
+    "boundary": "standalone-method-or-utility",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "session-state",
+    "primary": "skill",
+    "secondary": [
+      "native session persistence/compaction",
+      "workflow ledger owns execution state",
+      "optional explicit export of durable domain decisions"
+    ],
+    "current": "Loads/updates state.yaml, Git identity, handoff, cycle counters and user-preference fences; resets active IDs and archives open decisions to ADRs.",
+    "rationale": "Native sessions/workflow checkpoints replace execution bookkeeping; retain only handoff hygiene as an optional skill.",
+    "reuse": "Atomic session persistence, compaction, workflow artifacts and todo",
+    "adaptations": "No second state scheduler or automatic AGENTS/CLAUDE preference mutation; reconcile active_epic versus active_epic_id and counter formats; do not clear unresolved decisions by archiving; one writer for exports.",
+    "validation": "Resume/compaction preserves open questions and approvals; stale Git state prompts clarification; concurrent writers cannot overwrite; no instruction-file edits without scope.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/session-state/SKILL.md#L20-L47",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/session-state/SKILL.md#L20-L47",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/session-state/SKILL.md#L51-L143",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/specs/state.yaml#L1-L40"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "verified-implementation",
+    "adoption": "replace-with-native",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "setup-environment",
+    "primary": "skill",
+    "secondary": [
+      "Existing project toolchain owns setup. A workflow may call this as preparation; no persistent setup agent is required."
+    ],
+    "current": "Reads project commands, checks runtimes, installs lockfile dependencies, optionally copies `.env.example`, runs smoke checks, and records environment data. Offers global/PyPI `big-counter` installation.",
+    "rationale": "Reusable environment-preparation guidance is sufficient. Prefer project-native documented commands and avoid another installation control layer.",
+    "reuse": "Reusable environment-preparation guidance is sufficient. Prefer project-native documented commands and avoid another installation control layer. A1.",
+    "adaptations": "Environment setup must be explicitly in scope, not triggered by every fresh session. Package lifecycle scripts are execution. Never overwrite `.env`; redact recorded values. Omit BCP tooling unless adopted and dependency/license review is complete.",
+    "validation": "Test second-run behavior, offline/missing lockfiles, incompatible runtimes, partial install, and environment verification stronger than finding `Test` in CLAUDE.md.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/setup-environment/SKILL.md#L9-L40",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/setup-environment/SKILL.md#L9-L40"
+    ],
+    "partition": "B (skills-b.md S31)",
+    "boundary": "standalone-method-or-utility",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "simple-english",
+    "primary": "skill",
+    "secondary": [
+      "optional prose lint command",
+      "unslop for general style"
+    ],
+    "current": "Classifies procedural/descriptive text, applies pragmatic/strict STE limits, preserves code, rewrites modals, runs heuristic lint and optionally Vale; disclaims formal compliance.",
+    "rationale": "Substantial language guidance and references justify a skill, not automatic rewriting of every response.",
+    "reuse": "unslop and writing-for-agents; existing docs lint",
+    "adaptations": "Opt in to STE; preserve requirement strength and uncertainty; do not call regex checks complete compliance; respect licensed dictionary boundary; distinguish technical terms such as parameter and argument.",
+    "validation": "Commands/identifiers/quotes unchanged, may versus must meaning preserved, strict/pragmatic reports explicit; missing Vale and parser limits reported; no false compliance claim.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/simple-english/SKILL.md#L11-L70",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/simple-english/SKILL.md#L11-L70",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/simple-english/REFERENCE.md#L160-L160",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/simple-english/scripts/ste_lint.py#L1-L31",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/simple-english/scripts/ste_lint.py#L86-L93",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/simple-english/scripts/ste_lint.py#L257-L310"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "standalone-method-or-utility",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "simulate-agents",
+    "primary": "workflow",
+    "secondary": [
+      "Make this an **optional branch of the shared verification workflow**, not a standalone new workflow. Mock User owns scenario feedback; Auditor owns its checklist; parent consolidates."
+    ],
+    "current": "Runs isolated Mock User and Auditor roles against a verification script and diff, writes `SIMULATION-<feature>.md`, and routes failures to review response/planning. Explicitly warns simulations do not replace real testing or human review.",
+    "rationale": "The canonical responsibility coordinates two roles, so calling it one subagent would hide ownership. Reuse native fan-out and review specialists.",
+    "reuse": "The canonical responsibility coordinates two roles, so calling it one subagent would hide ownership. Reuse native fan-out and review specialists. A3-A5.",
+    "adaptations": "Label hypothetical walkthroughs separately from real browser/terminal actions. Share immutable scenario inputs, not the build conversation.",
+    "validation": "Test role isolation, uncovered scenarios, fake-versus-observed failures, and failure routing. Do not claim simulated acceptance grants production approval. A8.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/simulate-agents/SKILL.md#L9-L27",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/simulate-agents/SKILL.md#L9-L27"
+    ],
+    "partition": "B (skills-b.md S32)",
+    "boundary": "verified-implementation",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "see report section 7 role table"
+  },
+  {
+    "name": "slice-tasks",
+    "primary": "skill",
+    "secondary": [
+      "create-spec decomposition",
+      "parent-owned planning graph and task ledger"
+    ],
+    "current": "Cuts scoped work into vertical stories/tasks, assigns BCP and requirement deltas, updates epic manifests/release ordering and runnable verification fields.",
+    "rationale": "Vertical slicing is planning method; task scheduling belongs to the shared implementation workflow.",
+    "reuse": "create-spec, todo and existing workflow dependency contracts",
+    "adaptations": "Resolve 1-13 BCP shortcut versus canonical element-sum method; sizing optional and calibrated; do not infer elapsed time from points; keep requirements and execution state ownership distinct.",
+    "validation": "Each slice demonstrates user value end-to-end; dependencies acyclic; IDs/verify commands valid; before/after deltas and requirement coverage preserved.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/slice-tasks/SKILL.md#L12-L66",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/slice-tasks/SKILL.md#L12-L66",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/docs/references/bcp.md#L20-L64",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/docs/references/bcp-plus.md#L132-L151"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "planning",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "smoke-test",
+    "primary": "skill",
+    "secondary": [
+      "Deterministic checks own observations. An authorized deployment workflow owns post-deploy gating. Parent owns URL/environment selection."
+    ],
+    "current": "Reads `smoke-checks.yaml` or a URL; runs curl assertions for status/content/latency and saves logs. Used standalone or after deployment. The skill's hard gate says deploy first.",
+    "rationale": "Reusable HTTP verification method, not a model worker or mandatory standalone workflow. Existing shell/test tooling suffices.",
+    "reuse": "Reusable HTTP verification method, not a model worker or mandatory standalone workflow. Existing shell/test tooling suffices. A1, A8.",
+    "adaptations": "Do not interpret invocation as permission to deploy. Validate the runner before reuse: parsed HTTP method is unused, successful YAML status checks are not counted, and URL override handling needs tests. Restrict production checks to authorized, non-mutating requests by default.",
+    "validation": "Test status-only success, timeout/DNS failure, method handling, content mismatch, threshold boundaries, and empty configurations. R10.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/smoke-test/SKILL.md#L12-L84",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/smoke-test/SKILL.md#L12-L84"
+    ],
+    "partition": "B (skills-b.md S33)",
+    "boundary": "delivery",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "spike-prototype",
+    "primary": "skill",
+    "secondary": [
+      "optional bounded worker in isolated scratch space",
+      "research findings artifact"
+    ],
+    "current": "Defines question/timebox with user, writes throwaway experimental code, records outcomes/evidence/unknowns, deletes experiment and hands learning to planning.",
+    "rationale": "Experiment discipline is reusable; a dedicated always-on prototype agent or workflow is unnecessary.",
+    "reuse": "worker or debugger for one bounded experiment; native task lifetime controls",
+    "adaptations": "Ignore production polish, not security/credentials/permissions; no automatic deletion outside owned scratch scope; preserve useful evidence; no implicit production integration or new plan execution.",
+    "validation": "Timebox and scope enforced; unanswered is a valid outcome; original files unchanged; no production credentials/external side effects; cleanup touches only owned scratch artifacts.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/spike-prototype/SKILL.md#L9-L96",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/spike-prototype/SKILL.md#L9-L96"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "planning",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "stocktake-skills",
+    "primary": "workflow",
+    "secondary": [
+      "One maintenance workflow owns inventory, partitions, and synthesis. Read-only audit workers report; `evolve-skill` is a later approved change path."
+    ],
+    "current": "Audits changed/all skills through validators and batch review; checks mirrored inventory, descriptions, gates, usage/timing, and optionally executes skill verification commands. Writes a dated stocktake and routes fixes onward.",
+    "rationale": "Whole-catalog batch audit is structured, resumable work. Reuse `fan-out-and-synthesize` or bounded sequential stages according to independence.",
+    "reuse": "Whole-catalog batch audit is structured, resumable work. Reuse `fan-out-and-synthesize` or bounded sequential stages according to independence. A4-A5.",
+    "adaptations": "Do not treat missing timing as zero usage or auto-archive from it. Existing audit checks name presence, not mirror-content equality. Replace stale “N/68” denominators with actual inventory. Audit verification commands before execution because they may write or install.",
+    "validation": "Test stale/missing resources, content drift, missing telemetry, duplicate identities, and no unapproved fixes/deletions. R8.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/stocktake-skills/SKILL.md#L16-L66",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/stocktake-skills/SKILL.md#L16-L66"
+    ],
+    "partition": "B (skills-b.md S34)",
+    "boundary": "skill-maintenance",
+    "adoption": "defer",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "see report section 7 role table"
+  },
+  {
+    "name": "survey-context",
+    "primary": "skill",
+    "secondary": [
+      "native session/workflow status",
+      "optional locator role for large context"
+    ],
+    "current": "Reads conventions/specs/CLAUDE and VCS, validates YAML, maps lifecycle, suggests next skill, writes timing and story-start state; absorbed list-epics/check-gates.",
+    "rationale": "Context selection remains useful, while native status replaces lifecycle inference and mandatory startup scripting.",
+    "reuse": "research-codebase, how, native skill catalog/task/workflow status",
+    "adaptations": "Read RULES/AGENTS first; distinguish Git/Jujutsu correctly; no mandatory state initialization; do not overwrite a dynamic recommendation with unconditional plan-work handoff; do not revive ship-epic alias.",
+    "validation": "No-spec project works; stale/contradictory state blocks assumptions; Jujutsu detached Git HEAD not misread; status-only invocation writes nothing.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/survey-context/SKILL.md#L12-L138",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/survey-context/SKILL.md#L12-L138"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "planning",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "terse-mode",
+    "primary": "prompt-template",
+    "secondary": [
+      "Current session owns the requested style. No model pin or cross-session setting change."
+    ],
+    "current": "Explicitly activates persistent compressed output until stopped. Drops grammar/filler/hedging but preserves technical terms and restores clarity for sensitive situations. Description also claims roughly 75% token savings.",
+    "rationale": "This is an explicit communication preference, not task expertise or a worker. Existing `unslop` and concise-output preferences already cover much of its value.",
+    "reuse": "This is an explicit communication preference, not task expertise or a worker. Existing `unslop` and concise-output preferences already cover much of its value. A2.",
+    "adaptations": "Recommend concise normal language rather than “caveman” grammar. Do not remove uncertainty needed for truthful reporting. No measured support was found here for 75% savings.",
+    "validation": "Test off/normal-mode reset, security warnings, quoted errors, technical fidelity, and no spillover into unrelated sessions.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/terse-mode/SKILL.md#L5-L39",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/terse-mode/SKILL.md#L5-L39"
+    ],
+    "partition": "B (skills-b.md S35)",
+    "boundary": "standalone-method-or-utility",
+    "adoption": "replace-with-native",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "trace-requirement",
+    "primary": "skill",
+    "secondary": [
+      "deterministic trace extraction",
+      "shared verification artifact"
+    ],
+    "current": "Extracts story IDs, searches code/test tags, writes coverage/dark/orphan matrix and recommends planning gaps.",
+    "rationale": "Trace interpretation is reusable policy; computation belongs to tools, not a separate reviewer agent or global hook.",
+    "reuse": "Atomic acceptance matrices, native search and versioned verification artifacts",
+    "adaptations": "Explicit tags are provenance, not proof of implementation; align numeric versus eNNsYY IDs; preserve generated matrix ownership; avoid mandatory comment pollution where native acceptance links suffice.",
+    "validation": "Missing tags, orphan tags, false filename links, archived stories and stale evidence; coverage denominator and oracle confidence explicit; no tag-only false pass.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/trace-requirement/SKILL.md#L10-L70",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/trace-requirement/SKILL.md#L10-L70",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/scripts/trace-stories.sh#L56-L73"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "verified-implementation",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "using-bigpowers",
+    "primary": "prompt-template",
+    "secondary": [
+      "Explicit onboarding prompt; native skill/workflow catalogs supply current choices. Parent owns whether any method is adopted."
+    ],
+    "current": "Explains lifecycle and entry skills, includes installation/setup commands, recommends solo landing, and routes to survey-context. Conflicts between “one-time introduction” and mandatory use at every session.",
+    "rationale": "Onboarding should be opt-in help, not a session-start extension or permanent methodology injection.",
+    "reuse": "Onboarding should be opt-in help, not a session-start extension or permanent methodology injection. A1-A2.",
+    "adaptations": "Remove executable setup instructions from the normal help path and make installation a separately authorized action. Explain retained methods and departures honestly. Use live inventory rather than hardcoded counts.",
+    "validation": "Test help-only invocation, existing configuration preservation, no automatic bootstrap, and inline-mode respect.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/using-bigpowers/SKILL.md#L9-L108",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/using-bigpowers/SKILL.md#L9-L108"
+    ],
+    "partition": "B (skills-b.md S36)",
+    "boundary": "skill-maintenance",
+    "adoption": "replace-with-native",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "validate-contracts",
+    "primary": "skill",
+    "secondary": [
+      "project-native deterministic contract tests",
+      "shared verification/deploy precondition"
+    ],
+    "current": "Defines schema/key-set/shape contracts, invokes shell runner and repairs mismatches; actual runner only checks top-level reference keys are present in target and skips unsupported types with exit zero.",
+    "rationale": "Contract design and interpretation are reusable knowledge; validation should use existing project tooling.",
+    "reuse": "existing schema/API/migration tests and Atomic durable verification tools",
+    "adaptations": "Resolve subset-direction mismatch, implement or explicitly block unsupported modes, avoid grep YAML parsing and path interpolation; parameterize consumer root; freshness based on contract changes, not a universal 30-day rule.",
+    "validation": "Exact/subset direction, nested keys, malformed YAML/JSON, quoted paths, missing files and schema/shape unsupported cases cannot pass vacuously.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/validate-contracts/SKILL.md#L12-L82",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/validate-contracts/SKILL.md#L12-L82",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/validate-contracts/REFERENCE.md#L129-L129",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/scripts/validate-contracts.sh#L8-L58"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "verified-implementation",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "validate-fix",
+    "primary": "skill",
+    "secondary": [
+      "Skill owns verification criteria. The shared bug-fix workflow owns bounded retry and repair; deterministic tools produce evidence. Parent owns correct bug identity and completion."
+    ],
+    "current": "Re-runs the failing test, full suite, typecheck, lint, hardening, a defect-class sweep, and manual behavioral proof. Updates bug/registry resolution. Prescribes separate RED/GREEN commits and repeats until every check passes.",
+    "rationale": "The checklist is reusable knowledge across inline and workflow execution. Another standalone “validate-fix workflow” would duplicate the bug-fix owner.",
+    "reuse": "The checklist is reusable knowledge across inline and workflow execution. Another standalone “validate-fix workflow” would duplicate the bug-fix owner. A1, A4, A8.",
+    "adaptations": "Remove automatic commit discipline unless explicitly adopted. Target an explicit bug ID, not “the most recent” bug file. Bound repetition and reassess after failure; do not repeatedly run unchanged checks expecting different results. Scope hardening/sibling fixes deliberately.",
+    "validation": "Test behavior still broken despite green unit tests, stale evidence, sweep incompleteness, and concurrent bugs. R5.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/validate-fix/SKILL.md#L12-L117",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/validate-fix/SKILL.md#L12-L117"
+    ],
+    "partition": "B (skills-b.md S38)",
+    "boundary": "verified-implementation",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "verify-work",
+    "primary": "workflow",
+    "secondary": [
+      "shared implementation verification component",
+      "retained UAT/risk method",
+      "native shell/browser/terminal tools"
+    ],
+    "current": "Runs preflight, task checks, cold start, build/types/lint/tests, security/trace/NFR checks and user UAT; repeats gap closure and writes evidence/status.",
+    "rationale": "Multiphase verification with human checkpoints and repairs belongs in the shared workflow, not hidden prose loops.",
+    "reuse": "Atomic verification guidance, qlty, playwright-cli, terminal tooling under its permissions; adversarial-verification where contract fits",
+    "adaptations": "Resolve mandatory UAT versus P2/P3 skips; never weaken project-required checks; no pkill or blanket cache deletion; bind evidence to final candidate; deterministic checks are not model scores.",
+    "validation": "Single contiguous run receipts, user scenario, skip labels, terminal exit status, high-risk blockers and stale evidence; stop/resume does not duplicate side effects; failed verify-pattern changes require review.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/verify-work/SKILL.md#L21-L70",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/verify-work/SKILL.md#L21-L70",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/verify-work/SKILL.md#L89-L149",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/verify-work/REFERENCE.md#L3-L10"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "verified-implementation",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "see report section 7 role table"
+  },
+  {
+    "name": "visual-dashboard",
+    "primary": "extension",
+    "secondary": [
+      "**Prefer native workflow status/graph first.** Only a demonstrated product-status gap warrants an opt-in read-only extension. Native runtime owns run state; extension projects it without scheduling work."
+    ],
+    "current": "Starts a background browser dashboard with HTTP/WebSocket handling and file watching; reads project specifications and persists session content/state/logs. Describes the PM dashboard as read-only while optional screens record interaction events.",
+    "rationale": "Live status/UI is the only clear extension-primary responsibility in this subset. Reuse `show-me` for static diagrams and native status for execution.",
+    "reuse": "Live status/UI is the only clear extension-primary responsibility in this subset. Reuse `show-me` for static diagrams and native status for execution. A6.",
+    "adaptations": "Do not port the browser server merely for a second cockpit. Its parser expects older `file` epic links, not current capsule directories; arbitrary `projectDir` is accepted without project authorization. If retained, enforce path scope, bind/auth/origin policy, owned process cleanup, and reload-safe subscriptions.",
+    "validation": "Test unavailable versus idle, nested runs, pause/resume, and no automatic handoff execution. R11.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/visual-dashboard/SKILL.md#L5-L51",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/visual-dashboard/SKILL.md#L5-L51"
+    ],
+    "partition": "B (skills-b.md S39)",
+    "boundary": "status-reporting",
+    "adoption": "defer",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "see report section 7 role table"
+  },
+  {
+    "name": "wire-ci",
+    "primary": "skill",
+    "secondary": [
+      "existing CI config/templates and validators",
+      "explicit setup task when authorized"
+    ],
+    "current": "Detects forge/stack and copies bundled template; docs promise validate/dry-run; actual runner accepts detect/plan/apply/self-test and writes to package root unless WIRE_CI_TARGET set.",
+    "rationale": "CI configuration is an occasional setup method, not an Atomic runtime extension or dedicated workflow.",
+    "reuse": "project CI, qlty and native shell verification",
+    "adaptations": "Preserve existing workflow files; parameterize consumer root; implement or remove unsupported flags; never treat gh workflow run as dry-run; avoid automatic release jobs and unexpected permission/secrets changes.",
+    "validation": "Unknown/unsupported forge writes nothing; existing CI unchanged without explicit replacement; actual validation modes exercised; no remote dispatch or registry publish in local checks.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/wire-ci/SKILL.md#L10-L110",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/wire-ci/SKILL.md#L10-L110",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/scripts/wire-ci.sh#L20-L85",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/scripts/wire-ci.sh#L146-L159",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/wire-ci/REFERENCE.md#L258-L268"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "delivery",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "wire-observability",
+    "primary": "skill",
+    "secondary": [
+      "Approved application implementation workflow owns code changes. Skill owns instrumentation method. Existing application logging stack owns runtime behavior."
+    ],
+    "current": "Examines logging/health/setup, adds application JSON logging, documents commands in CLAUDE.md, creates setup scripts, and verifies logging, health, redaction, and idempotence. Adds BCP sizing guidance.",
+    "rationale": "**Application observability is not an Atomic extension.** Reuse existing dependencies and `qlty`/project checks where relevant, not an agent event hook.",
+    "reuse": "**Application observability is not an Atomic extension.** Reuse existing dependencies and `qlty`/project checks where relevant, not an agent event hook. A1, A8.",
+    "adaptations": "Resolve exact logging-library versions; do not add a parallel logging stack. Reconcile `userId` example with “never log PII.” Check operation-boundary coverage and useful metrics, not just JSON shape.",
+    "validation": "Test redaction, error paths, correlation, startup failures, concurrent setup, and replay. The sample check-then-create database operation is not concurrency-safe merely because it is called idempotent.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/wire-observability/SKILL.md#L9-L98",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/wire-observability/SKILL.md#L9-L98"
+    ],
+    "partition": "B (skills-b.md S40)",
+    "boundary": "standalone-method-or-utility",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  },
+  {
+    "name": "write-document",
+    "primary": "skill",
+    "secondary": [
+      "optional README prompt template",
+      "unslop/writing-for-agents methods"
+    ],
+    "current": "Chooses ADR/context/guide/README artifact, applies BMAD writing rules, adds verify commands and nested GEMINI indexes, may compact state and run broad skill sync.",
+    "rationale": "Artifact selection and durable documentation guidance merit a skill; no separate writing scheduler is needed.",
+    "reuse": "unslop, writing-for-agents, create-spec for planned changes, how/why for architecture",
+    "adaptations": "Keep factual uncertainty rather than force strong claims; drop arbitrary 94 percent label, mandatory 300-line compaction, placeholders and GEMINI index proliferation; no generated/CHANGELOG edits or sync; correct template paths and commit examples.",
+    "validation": "Purpose and audience clear; cited claims, runnable examples and links verified; no invented project settings; read-only files unchanged; absent details remain labeled unknown.",
+    "source": "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/write-document/SKILL.md#L10-L77",
+    "sources": [
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/write-document/SKILL.md#L10-L77",
+      "https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/write-document/REFERENCE.md#L153-L202"
+    ],
+    "partition": "A (skills-a.md, partition-b-classifications.json)",
+    "boundary": "standalone-method-or-utility",
+    "adoption": "adapt",
+    "upstream_commit": "cbff374ee2d4095b53a81696262a39f164fa0774",
+    "upstream_version": "2.88.2",
+    "model_policy": "none: skills and templates inherit the executing session/stage/agent; see report section 7"
+  }
+]

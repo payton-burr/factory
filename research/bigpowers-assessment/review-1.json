@@ -1,0 +1,48 @@
+# Skeptical review
+
+**Approved: false.** One material compatibility claim needs correction. This does not require installing Bigpowers or testing runtime compatibility now.
+
+## Coverage passes
+
+The report matches the supplied SHA-256:
+
+`6c24fcf8a937fb3128c6e5240804c5d40dadd4647455b03655df36bea3f74581`
+
+Independent read-only checks confirmed:
+- 81 canonical names, 81 classification records, no missing, invented, or duplicated names.
+- Counts reconcile: 52 skills, 14 workflows, 9 prompt templates, 4 subagents, 2 extensions.
+- Required fields are populated; every JSON source citation resolves within the pinned checkout and its stated line range.
+- Human-table primaries match the JSON.
+
+## Required correction
+
+### P2: Distinguish command collisions from duplicate autocomplete entries
+
+`assessment-1.md:207,245` says issue #121 reproduces in Atomic, citing extension-command dispatch precedence. That establishes which command executes, not whether autocomplete displays duplicate entries.
+
+Atomic’s default interactive path isolates the engine and disables extension loading in the terminal host. Its autocomplete merger explicitly suppresses remote commands whose names already exist locally and deduplicates remote names:
+
+- [Default isolated-host selection](https://github.com/bastani-inc/atomic/blob/3342c8d3648065d1568579dbe44baf534feddf5e/packages/coding-agent/src/main.ts#L350-L353)
+- [Host disables extensions](https://github.com/bastani-inc/atomic/blob/3342c8d3648065d1568579dbe44baf534feddf5e/packages/coding-agent/src/main.ts#L596-L604)
+- [Name-based autocomplete deduplication](https://github.com/bastani-inc/atomic/blob/3342c8d3648065d1568579dbe44baf534feddf5e/packages/coding-agent/src/modes/interactive/interactive-autocomplete.ts#L163-L188)
+- [Templates participate in that deduplication](https://github.com/bastani-inc/atomic/blob/3342c8d3648065d1568579dbe44baf534feddf5e/packages/coding-agent/src/modes/interactive/interactive-autocomplete.ts#L312-L339)
+
+Bigpowers nevertheless registers competing commands at [omp-hooks.ts:252-260](https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/extensions/omp-hooks.ts#L252-L260). The collision and differing invocation bodies remain legitimate concerns.
+
+**Correction:** describe default Atomic behavior as a command-ownership collision with autocomplete deduplication, not a demonstrated reproduction of Pi’s duplicate-entry symptom. Separate isolated-host, in-process, and command-catalog behavior. Preserve the one-slash-owner recommendation and make host-specific runtime checks future validation items.
+
+## Non-blocking clarification
+
+### P3: Check authorization for each action without necessarily asking again
+
+`assessment-1.md:193,227` mandates a human-input gate before every delivery action. Distinct action authority is appropriate, but an existing explicit authorization may cover several actions. Atomic says not to seek approval again for already-authorized work: [question-tool policy:62-66](https://github.com/bastani-inc/atomic/blob/3342c8d3648065d1568579dbe44baf534feddf5e/packages/coding-agent/src/core/tools/ask-user-question/ask-user-question.ts#L62-L66).
+
+**Clarification:** require each action to fall within explicit authorization; ask when authority is absent or scope changes, while preserving genuinely required approval gates. Keep the current research-only prohibition distinct from future operational policy.
+
+## Findings that withstand review
+
+No primary reclassification is requested. Full-source borderline probes support the distinctions between self-audit and independent review, reusable delegation guidance and orchestration, module-interface design and frontend design, and repository Git hooks versus Atomic event interception.
+
+The benchmark-control defect, CI false-success paths, security exclusions, state-owner conflicts, and TestPyPI “dry-run” publication are source-backed. The model policy matches Atomic’s dated eval tables and supplied catalog subset, separates measurement effort from production recommendations, and acknowledges benchmark limitations.
+
+Runtime compatibility remains untested. That uncertainty is appropriate for this research-only report and is **not itself a rejection reason**. No source, settings, or generated files were modified.

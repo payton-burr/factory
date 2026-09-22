@@ -1,0 +1,56 @@
+# Skeptical review
+
+**Approved: true. No required corrections.**
+
+Reviewed:
+- `/home/pburr/personal/factory/research/bigpowers-assessment/assessment-2.md`
+- `/home/pburr/personal/factory/research/bigpowers-assessment/classifications-2.json`
+
+## Coverage passes
+
+The report matches the supplied SHA-256:
+
+`66baaf92ba62611bfabe4fec2b9db45a6c97e32c49f85663c37ee1a57182b5e0`
+
+Read-only checks confirmed 81 unique canonical names, no omissions or inventions, populated JSON fields, valid pinned citation ranges, and agreement between human-table and JSON primaries.
+
+Counts reconcile to **52 skills, 14 workflows, nine prompt templates, four subagents, and two extensions**. These classify responsibilities rather than requiring that many resources.
+
+## Material claims withstand review
+
+### Classifications and hybrid ownership
+
+Full-source borderline probes support the proposed distinctions:
+
+- `audit-code` explicitly defines [author self-review](https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/audit-code/SKILL.md#L15-L17), supporting skill ownership rather than an independent reviewer.
+- `delegate-task` supplies [briefing, dispatch, review and acceptance instructions](https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/delegate-task/SKILL.md#L18-L90). Retaining its briefing method while assigning execution and retries to native mechanisms is a defensible split.
+- `design-interface` concerns [module callers, signatures and alternatives](https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/design-interface/SKILL.md#L16-L98), not necessarily frontend design.
+- `request-review` owns [independent fan-out, aggregation and repeated repair](https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/request-review/SKILL.md#L23-L40), supporting workflow-primary classification with secondary reviewers.
+
+The report identifies methodology departures explicitly and avoids creating one scheduler per procedural skill.
+
+### Extension need and API compatibility
+
+The corrected autocomplete claim is supported. Atomic [suppresses remote names already present locally](https://github.com/bastani-inc/atomic/blob/3342c8d3648065d1568579dbe44baf534feddf5e/packages/coding-agent/src/modes/interactive/interactive-autocomplete.ts#L163-L188); competing command ownership does not establish duplicate rendered suggestions.
+
+The false-delivery-receipt concern also survives inspection. Bigpowers [awaits injection and reports success](https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/extensions/omp-hooks.ts#L210-L233), while Atomic's extension binding [does not return the delivery promise](https://github.com/bastani-inc/atomic/blob/3342c8d3648065d1568579dbe44baf534feddf5e/packages/coding-agent/src/core/agent-session-extension-bindings.ts#L276-L287).
+
+Optional Git interception and deferred status observation have concrete native APIs. Neither is presented as a mandatory extension or sandbox.
+
+### State, gates and authorization
+
+The state conflicts are substantive. `session-state` describes [numeric progression but also skill-name step values](https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/session-state/SKILL.md#L79-L137); `build-epic` [mixes `step` and `current_step`](https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/build-epic/SKILL.md#L43-L74). One native execution-state owner is justified.
+
+Authorization wording now follows Atomic's [no-redundant-approval policy](https://github.com/bastani-inc/atomic/blob/3342c8d3648065d1568579dbe44baf534feddf5e/packages/coding-agent/src/core/tools/ask-user-question/ask-user-question.ts#L62-L66) while preserving required gates.
+
+The consequential helper findings are source-backed, including the [fabricated benchmark control](https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/scripts/lib/run-benchmark.py#L35-L80), [CI false-success path](https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/scripts/wait-for-ci.sh#L95-L111), and [TestPyPI upload labeled dry-run](https://github.com/danielvm-git/bigpowers/blob/cbff374ee2d4095b53a81696262a39f164fa0774/skills/publish-package/REFERENCE.md#L249-L259).
+
+### Model and effort policy
+
+The policy matches Atomic's [role-based effort guidance](https://github.com/bastani-inc/atomic/blob/3342c8d3648065d1568579dbe44baf534feddf5e/packages/coding-agent/docs/models/model-selection.md#L22-L32) and [dated per-evaluation evidence](https://github.com/bastani-inc/atomic/blob/3342c8d3648065d1568579dbe44baf534feddf5e/packages/coding-agent/docs/models/evals.md#L183-L259). Proposed IDs and efforts remain within the supplied catalog subset. Measurement settings, production recommendations, benchmark fallback, and account availability are distinguished appropriately.
+
+## Remaining uncertainty
+
+Runtime integration remains untested. The report correctly retains host-specific compatibility checks, dependency resolution and licensing decisions as future work. Those uncertainties do not block approval of research-only recommendations.
+
+This approval does **not** authorize installation or implementation. No source, settings or generated files were modified during this review, and both pinned source checkouts remain clean.

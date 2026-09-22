@@ -1,0 +1,11 @@
+{
+  "name": "@factory/agents",
+  "private": true,
+  "type": "module",
+  "atomic": {
+    "skills": ["./skills"],
+    "prompts": [],
+    "extensions": [],
+    "workflows": []
+  }
+}
