@@ -4,7 +4,7 @@
   "type": "module",
   "atomic": {
     "skills": ["./skills"],
-    "prompts": [],
+    "prompts": ["./prompts"],
     "extensions": [],
     "workflows": []
   }
