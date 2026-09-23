@@ -1,15 +1,19 @@
 {
   "name": "factory",
-  "type": "module",
-  "version": "1.0.0",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "version": "0.0.1",
+  "private": true,
+  "keywords": ["atomic-package"],
+  "files": ["packages/", "README.md"],
+  "atomic": {
+    "skills": ["./packages/bigpowers/skills", "./packages/agents/skills"],
+    "prompts": [],
+    "extensions": [],
+    "themes": [],
+    "workflows": []
   },
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "^11.22.0",
-      "onFail": "download"
-    }
-  }
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
+  },
+  "packageManager": "pnpm@11.27.1"
 }
