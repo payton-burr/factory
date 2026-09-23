@@ -1,5 +1,7 @@
 ---
-description: Quick gallery search. Use when user runs /meigen-ai-design:find with keywords to browse inspiration.
+description: >-
+  Quick gallery search. Use when user runs /meigen-ai-design:find with keywords
+  to browse inspiration.
 argument-hint: <keywords>
 ---
 

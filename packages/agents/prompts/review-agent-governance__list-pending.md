@@ -1,5 +1,5 @@
 ---
-description: List recent denied review actions from the receipt chain. Shows what the agent tried to do that was blocked by the review-governance policy.
+description: "List recent denied review actions from the receipt chain. Shows what the agent tried to do that was blocked by the review-governance policy."
 argument-hint: "[--last N]"
 ---
 
@@ -28,7 +28,7 @@ approval via `/approve-review`.
 
 ## Implementation
 
-Run this in `shell`:
+Run this in the Bash tool:
 
 ```bash
 set -euo pipefail

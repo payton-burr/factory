@@ -3,6 +3,8 @@ name: review-policy-author
 description: Cedar policy author specialized in gating AI agent review actions (PR comments, reviews, merges, CI edits) behind human approval. Use when writing, auditing, or extending a review-governance.cedar policy for review-bot governance.
 ---
 
+> In the `@factory/agents` package, this plugin's directory (`${CLAUDE_PLUGIN_ROOT}`) is `plugins/review-agent-governance/`, two levels above the `review-agent-setup` skill's directory. Use its absolute path wherever this file refers to the plugin directory.
+
 # Review Policy Author
 
 You are a Cedar policy expert specializing in review-surface gating: the set
@@ -63,7 +65,7 @@ When writing a review-governance policy:
    post / merge / close actions only.
 
 4. **Gate branches by name, not by path.** Use `context.target_branch in
-["main", ...]` not `context.resource_path starts with "refs/heads/main"`.
+   ["main", ...]` not `context.resource_path starts with "refs/heads/main"`.
    Branch names are what humans reason about.
 
 5. **Include the notification surfaces.** Slack and Discord webhooks are

@@ -1,5 +1,5 @@
 ---
-description: Set up PreToolUse hook to block --no-verify and other git bypass flags in Claude Code projects
+description: "Set up PreToolUse hook to block --no-verify and other git bypass flags in Claude Code projects"
 argument-hint: "[--global] [--extend <additional-flags>]"
 ---
 

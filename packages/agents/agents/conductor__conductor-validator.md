@@ -1,7 +1,7 @@
 ---
 name: conductor-validator
 description: Validates Conductor project artifacts for completeness, consistency, and correctness. Use after setup, when diagnosing issues, or before implementation to verify project context.
-tools: read, find, grep, bash
+tools: read, find, search, bash
 ---
 
 You are an expert validator for Conductor project artifacts. Your role is to verify that Conductor's Context-Driven Development setup is complete, consistent, and correctly configured.
@@ -76,9 +76,9 @@ When tracks exist, verify each track is properly configured.
 
 - Each track listed in `tracks.md` has a corresponding directory in `conductor/tracks/`
 - Track directories contain required files:
-    - `spec.md` - Requirements specification
-    - `plan.md` - Phased task breakdown
-    - `metadata.json` - Track metadata
+  - `spec.md` - Requirements specification
+  - `plan.md` - Phased task breakdown
+  - `metadata.json` - Track metadata
 
 **Status Marker Validation:**
 

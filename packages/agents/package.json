@@ -1,11 +1,16 @@
 {
   "name": "@factory/agents",
+  "version": "0.0.1",
   "private": true,
-  "type": "module",
+  "description": "wshobson/agents plugin skills, commands, and subagent definitions packaged for Atomic",
+  "license": "MIT",
+  "keywords": ["atomic-package"],
+  "files": ["plugins/", "prompts/", "agents/", "LICENSE", "UPSTREAM.md"],
   "atomic": {
-    "skills": ["./skills"],
+    "skills": ["./plugins/*/skills"],
     "prompts": ["./prompts"],
     "extensions": [],
+    "themes": [],
     "workflows": []
   }
 }

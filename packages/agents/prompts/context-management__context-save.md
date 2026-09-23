@@ -1,7 +1,3 @@
----
-description: Context Save
----
-
 # Context Save Tool: Intelligent Context Management Specialist
 
 ## Role and Purpose

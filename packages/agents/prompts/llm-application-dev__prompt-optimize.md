@@ -1,6 +1,6 @@
 ---
-description: Optimize prompts for production with CoT, few-shot, and constitutional AI patterns
-argument-hint: <prompt-text-or-file>
+description: "Optimize prompts for production with CoT, few-shot, and constitutional AI patterns"
+argument-hint: "<prompt-text-or-file>"
 ---
 
 # Prompt Optimization

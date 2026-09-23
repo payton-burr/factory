@@ -40,7 +40,7 @@ In the consuming project's `.atomic/settings.json`, replace the Factory string e
   "packages": [
     {
       "source": "git:git@github.com:payton-burr/factory",
-      "skills": ["packages/agents/skills/**"],
+      "skills": ["packages/agents/plugins/*/skills/**"],
       "prompts": [],
       "extensions": [],
       "themes": [],
@@ -56,7 +56,7 @@ Prompts, extensions, themes, and workflows are explicitly disabled in the aggreg
 
 ## Agent resources
 
-`packages/agents/` contains subagent definitions in `agents/`, prompt templates in `prompts/`, and skills with supporting files in `skills/`. The imported resources come from [wshobson/agents](https://github.com/wshobson/agents); its [MIT license](packages/agents/LICENSE) is included.
+`packages/agents/` is an Atomic port of the plugins in [wshobson/agents](https://github.com/wshobson/agents). It contains skills and the plugin files they use in `plugins/<plugin>/`, prompt templates in `prompts/`, and subagent definitions in `agents/`. Its [MIT license](packages/agents/LICENSE) is included, and [UPSTREAM.md](packages/agents/UPSTREAM.md) records the source commit and every local change.
 
 Installing `packages/agents` directly registers its skills and prompt templates. Atomic's package manifest does not support subagent definitions. To make those available in a consuming project, copy them into that project's `.atomic/agents/` directory:
 
@@ -65,7 +65,9 @@ mkdir -p .atomic/agents/factory
 cp -Rn /path/to/factory/packages/agents/agents/. .atomic/agents/factory/
 ```
 
-The copy command leaves existing definitions unchanged; review updates before replacing installed files. Restart Atomic and check `/agents`. For global availability, use `~/.atomic/agent/agents/factory/` as the destination instead. Copying definitions does not validate their tool or model compatibility with the installed Atomic version.
+The copy command leaves existing definitions unchanged; review updates before replacing installed files. Restart Atomic and check `/agents`. For global availability, use `~/.atomic/agent/agents/factory/` as the destination instead. Agent frontmatter is mapped to Atomic tool names, but some agents still depend on Claude Code-only tools; see [UPSTREAM.md](packages/agents/UPSTREAM.md#limits).
+
+Copies of these resources in `~/.pi/agent/` or `~/.atomic/agent/` take precedence over the installed package. Remove them before relying on the package, or its prompts will not load.
 
 ## Bigpowers resources
 
@@ -94,6 +96,6 @@ Most scripts need `python3` with PyYAML; see [UPSTREAM.md](packages/bigpowers/UP
 npm pack --dry-run --ignore-scripts
 ```
 
-Inspect the package file list before distributing changes. `pnpm test` runs `tests/*.test.mjs`, which currently cover only the Bigpowers package. The root npm file allowlist keeps local research, Atomic session files, and development configuration out of the tarball. Git consumers still receive committed repository files.
+Inspect the package file list before distributing changes. `pnpm test` runs `tests/*.test.mjs`, which cover the Bigpowers and agents packages. The root npm file allowlist keeps local research, Atomic session files, and development configuration out of the tarball. Git consumers still receive committed repository files.
 
 Before distributing an update, test a clean copy with Atomic and check the intended skills, prompt templates, and manually installed subagents. Check each resource group for machine-local paths or symlinks; portability of one group does not establish portability of the others. Never run setup scripts as part of package installation.

@@ -74,22 +74,22 @@ earlier step already explains the symptom.
    `info: <reading>` per G-number — matching `preflight.sh`'s own
    PASS/FAIL/WARN/SKIP/INFO output contract:
 
-    ```json
-    {
-        "platform": "dgx-spark",
-        "checks": {
-            "G1": "pass",
-            "G3": "warn: 14GB page cache",
-            "G9": "info: running inside nvcr.io/nvidia/pytorch:25.11-py3"
-        },
-        "headroom_gb": 61,
-        "verdict": "ready"
-    }
-    ```
+   ```json
+   {
+     "platform": "dgx-spark",
+     "checks": {
+       "G1": "pass",
+       "G3": "warn: 14GB page cache",
+       "G9": "info: running inside nvcr.io/nvidia/pytorch:25.11-py3"
+     },
+     "headroom_gb": 61,
+     "verdict": "ready"
+   }
+   ```
 
-    Set `verdict` to `blocked` if any check is `fail` or headroom is
-    insufficient for the planned workload, `ready-with-warnings` if
-    only `warn`/`skip` entries remain, and `ready` otherwise.
+   Set `verdict` to `blocked` if any check is `fail` or headroom is
+   insufficient for the planned workload, `ready-with-warnings` if
+   only `warn`/`skip` entries remain, and `ready` otherwise.
 
 ## Behavioral Traits
 

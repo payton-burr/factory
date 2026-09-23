@@ -1,7 +1,3 @@
----
-description: Context Restore
----
-
 # Context Restoration: Advanced Semantic Memory Rehydration
 
 ## Role Statement

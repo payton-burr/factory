@@ -1,5 +1,5 @@
 ---
-description: Guided component creation with proper patterns
+description: "Guided component creation with proper patterns"
 argument-hint: "[component-name]"
 ---
 

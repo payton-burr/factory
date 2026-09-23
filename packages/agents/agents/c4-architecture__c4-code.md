@@ -116,17 +116,17 @@ When creating C4 Code-level documentation, follow this structure:
 ### Functions/Methods
 
 - `functionName(param1: Type, param2: Type): ReturnType`
-    - Description: [What this function does]
-    - Location: [file path:line number]
-    - Dependencies: [what this function depends on]
+  - Description: [What this function does]
+  - Location: [file path:line number]
+  - Dependencies: [what this function depends on]
 
 ### Classes/Modules
 
 - `ClassName`
-    - Description: [What this class does]
-    - Location: [file path]
-    - Methods: [list of methods]
-    - Dependencies: [what this class depends on]
+  - Description: [What this class does]
+  - Location: [file path]
+  - Methods: [list of methods]
+  - Dependencies: [what this class depends on]
 
 ## Dependencies
 

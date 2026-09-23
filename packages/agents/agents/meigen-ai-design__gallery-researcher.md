@@ -1,6 +1,10 @@
 ---
 name: gallery-researcher
-description: Gallery search and inspiration agent. Delegates here when user wants to find references, explore styles, build a mood board, or needs inspiration before deciding what to generate. Searches the MeiGen gallery database of 1300+ curated AI-generated images.
+description: >-
+  Gallery search and inspiration agent. Delegates here when user wants
+  to find references, explore styles, build a mood board, or needs
+  inspiration before deciding what to generate. Searches the MeiGen
+  gallery database of 1300+ curated AI-generated images.
 tools: mcp__meigen__search_gallery, mcp__meigen__get_inspiration
 ---
 
@@ -31,7 +35,6 @@ For each recommended reference:
 
 **[N]. [Brief descriptive title]**
 ![preview](thumbnail_url)
-
 - **Why**: [1 sentence — why this is relevant]
 - **Reusable prompt elements**: [key phrases from the prompt that user could adopt]
 - **Category**: [category] | **Likes**: [count]

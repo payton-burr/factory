@@ -1,5 +1,5 @@
 ---
-description: Task delegation dashboard for managing team workload, assignments, and rebalancing
+description: "Task delegation dashboard for managing team workload, assignments, and rebalancing"
 argument-hint: "[team-name] [--assign task-id=member-name] [--message member-name 'content'] [--rebalance]"
 ---
 
@@ -14,7 +14,7 @@ Manage task assignments and team workload. Provides a delegation dashboard showi
    - `--message member-name 'content'`: send a message to a specific member
    - `--rebalance`: analyze and rebalance workload distribution
 
-2. Read team config from `~/.claude/teams/{team-name}/config.json` using `open`
+2. Read team config from `~/.claude/teams/{team-name}/config.json` using the Read tool
 3. Call `TaskList` to get current state
 
 ## Action: Assign Task

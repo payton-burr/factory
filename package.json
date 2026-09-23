@@ -5,7 +5,7 @@
   "keywords": ["atomic-package"],
   "files": ["packages/", "README.md"],
   "atomic": {
-    "skills": ["./packages/bigpowers/skills", "./packages/agents/skills"],
+    "skills": ["./packages/bigpowers/skills", "./packages/agents/plugins/*/skills"],
     "prompts": [],
     "extensions": [],
     "themes": [],

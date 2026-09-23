@@ -1,7 +1,9 @@
 ---
-description: Initialize project with Conductor artifacts (product definition, tech stack, workflow, style guides)
+description: "Initialize project with Conductor artifacts (product definition, tech stack, workflow, style guides)"
 argument-hint: "[--resume]"
 ---
+
+> In the `@factory/agents` package, this plugin's directory (`${CLAUDE_PLUGIN_ROOT}`) is `plugins/conductor/`, two levels above the `context-driven-development` skill's directory. Use its absolute path wherever this file refers to the plugin directory.
 
 # Conductor Setup
 
@@ -127,7 +129,7 @@ Suggested:
 
 For **brownfield projects**, first analyze existing code:
 
-- Run `glob` to find package.json, requirements.txt, go.mod, Cargo.toml, etc.
+- Run `Glob` to find package.json, requirements.txt, go.mod, Cargo.toml, etc.
 - Parse detected files to pre-populate tech stack
 - Present findings and ask for confirmation/additions
 
@@ -363,7 +365,7 @@ After each successful file creation:
    - Add filename to `files_created` array
    - Update `last_updated` timestamp
    - If section complete, add to `completed_sections`
-2. Verify file exists with `read` tool
+2. Verify file exists with `Read` tool
 
 ## Completion
 

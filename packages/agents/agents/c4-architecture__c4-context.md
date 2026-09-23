@@ -147,13 +147,13 @@ When creating C4 Context-level documentation, follow this structure:
 1. [Step 1]: [Description]
 2. [Step 2]: [Description]
 3. [Step 3]: [Description]
-    ...
+   ...
 
 ### [External System] Integration Journey
 
 1. [Step 1]: [Description]
 2. [Step 2]: [Description]
-    ...
+   ...
 
 ## External Systems and Dependencies
 

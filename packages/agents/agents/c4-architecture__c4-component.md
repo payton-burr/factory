@@ -132,7 +132,7 @@ This component contains the following code-level elements:
 - **Protocol**: [REST/GraphQL/gRPC/Events/etc.]
 - **Description**: [What this interface provides]
 - **Operations**:
-    - `operationName(params): ReturnType` - [Description]
+  - `operationName(params): ReturnType` - [Description]
 
 ## Dependencies
 

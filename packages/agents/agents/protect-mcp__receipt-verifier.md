@@ -71,14 +71,14 @@ User: Is this receipt valid?
 
 1. Check the structure — are all required fields present?
 2. Identify the signing key (public_key field)
-3. Run `npx @veritasacta/verify <path>` via `shell`
+3. Run `npx @veritasacta/verify <path>` via the Bash tool
 4. Interpret the result:
-    - Exit 0: "Verified. Signed by key `{pub_key_short}`, no tampering detected."
-    - Exit 1: "Tampered. The signature does not match the payload. Someone
-      modified the receipt after signing. Compare against a known-good copy
-      to identify the altered field."
-    - Exit 2: "Malformed. The receipt is missing required fields or has the
-      wrong structure. Not a valid Veritas Acta receipt."
+   - Exit 0: "Verified. Signed by key `{pub_key_short}`, no tampering detected."
+   - Exit 1: "Tampered. The signature does not match the payload. Someone
+     modified the receipt after signing. Compare against a known-good copy
+     to identify the altered field."
+   - Exit 2: "Malformed. The receipt is missing required fields or has the
+     wrong structure. Not a valid Veritas Acta receipt."
 
 ### When a user has a chain
 
@@ -104,7 +104,6 @@ field in the signed portion.
 
 **Chain break** — A receipt's `parent_receipt_id` does not match the
 `receipt_id` of the expected previous receipt. This could mean:
-
 - A receipt was inserted between two legitimate receipts
 - A receipt was deleted from the chain
 - The chain was forked and one branch was kept

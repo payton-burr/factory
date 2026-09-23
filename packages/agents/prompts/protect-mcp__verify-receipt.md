@@ -1,6 +1,6 @@
 ---
-description: Verify a single Ed25519-signed receipt file. Returns exit 0 if valid, 1 if tampered, 2 if malformed.
-argument-hint: <path-to-receipt.json>
+description: "Verify a single Ed25519-signed receipt file. Returns exit 0 if valid, 1 if tampered, 2 if malformed."
+argument-hint: "<path-to-receipt.json>"
 ---
 
 # Verify Receipt
@@ -26,7 +26,7 @@ requests, no vendor lookups, no trust in the operator required.
 
 ## Implementation
 
-Run this in `shell`:
+Run this in the Bash tool:
 
 ```bash
 npx @veritasacta/verify "$1"

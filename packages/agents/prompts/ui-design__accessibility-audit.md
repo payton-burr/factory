@@ -1,5 +1,5 @@
 ---
-description: Audit UI code for WCAG compliance
+description: "Audit UI code for WCAG compliance"
 argument-hint: "[file-path|component-name|--level AA|AAA]"
 ---
 

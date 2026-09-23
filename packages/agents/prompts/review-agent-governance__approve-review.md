@@ -1,5 +1,5 @@
 ---
-description: Open a review-action approval window by creating the ./.review-approved flag file. Takes an optional reason string that is embedded in the receipt chain.
+description: "Open a review-action approval window by creating the ./.review-approved flag file. Takes an optional reason string that is embedded in the receipt chain."
 argument-hint: "[reason for approval]"
 ---
 
@@ -27,7 +27,7 @@ flag file with `rm ./.review-approved` or restart the session.
 
 ## Implementation
 
-Run this in `shell`. Capture the full user argument as `$ARGUMENTS`
+Run this in the Bash tool. Capture the full user argument as `$ARGUMENTS`
 (the marketplace slash-command convention) so a reason with spaces is
 preserved verbatim.
 

@@ -26,14 +26,14 @@ don't recall it from memory.
   template/packing mechanics, the synthetic-data collapse guard, and
   the dataset card, all per `dataset-curation`.
 - **Config generation per method** — SFT LoRA/QLoRA via `lora-qlora-
-recipes`, DPO/ORPO/KTO/SimPO via `preference-optimization`,
+  recipes`, DPO/ORPO/KTO/SimPO via `preference-optimization`,
   GRPO+RLVR via `grpo-rlvr-training`, VLM SFT via `vision-sft`; the
   brief's `## Chosen Method` field picks exactly one — never blend
   hyperparameters across them.
 - **Unsloth-first, TRL escape hatch.** Generate scripts against
   Unsloth's fast path by default; when a point-release regression
   forces a fallback, work the escape-hatch procedure in `lora-qlora-
-recipes`' `references/unsloth-trl-mapping.md` instead of hand-
+  recipes`' `references/unsloth-trl-mapping.md` instead of hand-
   translating configs from memory.
 - **Environment confirmation and run monitoring** — read or produce
   `env-report.json` before touching a launch command, then launch as
@@ -50,7 +50,7 @@ Phase 2 dataset card and a Phase 3 environment verdict in hand.
 ### Phase 2 — Dataset
 
 1. Read `training-brief.md`'s `## Dataset Expectation` and `##
-Chosen Method` fields.
+   Chosen Method` fields.
 2. Build the dataset per `dataset-curation`'s format table; apply
    the chat template before any concatenation or packing, never
    after.
@@ -89,9 +89,9 @@ Chosen Method` fields.
 4. Poll `logs/` and emit structured progress lines in this exact
    shape, one per observed step:
 
-    ```json
-    { "step": 340, "loss": 0.812, "lr": 1.8e-4, "mem_gb": 71, "temp_c": 68 }
-    ```
+   ```json
+   {"step": 340, "loss": 0.812, "lr": 1.8e-4, "mem_gb": 71, "temp_c": 68}
+   ```
 
 5. On completion, hand the checkpoint to the eval engineer for Phase
    5 gating — you do not gate your own output.
@@ -142,21 +142,21 @@ wrong class wastes a run and can mask the real cause.
 2. **Divergence** — loss spikes, NaNs, or a curve that stops
    improving mid-run. Halt the run, then check causes in this exact
    order and stop at the first that explains it:
-    1. **fp16 vs. bf16** — confirm `bf16=True` and hardware BF16
-       support per `lora-qlora-recipes`' Failure Modes; fp16 on
-       hardware without solid BF16 support is a known silent-
-       divergence source.
-    2. **Learning rate vs. method** — check the LR against the
-       method-specific skill's table (SFT vs. DPO-family vs. GRPO
-       carry very different settled ranges); a rate ported from the
-       wrong method is the next most common cause.
-    3. **Packing corruption** — only after the first two are cleared,
-       decode packed sequences again per `dataset-curation` and
-       confirm boundaries and masking are still intact; packing bugs
-       are silent at the loss level and only surface as divergence or
-       a flat eval later.
+   1. **fp16 vs. bf16** — confirm `bf16=True` and hardware BF16
+      support per `lora-qlora-recipes`' Failure Modes; fp16 on
+      hardware without solid BF16 support is a known silent-
+      divergence source.
+   2. **Learning rate vs. method** — check the LR against the
+      method-specific skill's table (SFT vs. DPO-family vs. GRPO
+      carry very different settled ranges); a rate ported from the
+      wrong method is the next most common cause.
+   3. **Packing corruption** — only after the first two are cleared,
+      decode packed sequences again per `dataset-curation` and
+      confirm boundaries and masking are still intact; packing bugs
+      are silent at the loss level and only surface as divergence or
+      a flat eval later.
 3. **UMA OOM** — a job that OOMs on unified memory. Work `dgx-spark-
-ops`'s `spark-memory-thermal-ops` OOM Ladder in its fixed order —
+   ops`'s `spark-memory-thermal-ops` OOM Ladder in its fixed order —
    flush, then reduce batch size or packing length, then downgrade
    the method (bf16 LoRA before QLoRA) — citing the ladder by name
    rather than restating its steps from memory. **Reducing batch

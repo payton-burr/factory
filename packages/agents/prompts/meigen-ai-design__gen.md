@@ -1,5 +1,7 @@
 ---
-description: Quick image generation. Use when user runs /meigen-ai-design:gen with a prompt. Skips intent assessment, generates directly.
+description: >-
+  Quick image generation. Use when user runs /meigen-ai-design:gen with a prompt.
+  Skips intent assessment, generates directly.
 argument-hint: <prompt>
 ---
 

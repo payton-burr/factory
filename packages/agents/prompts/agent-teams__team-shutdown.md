@@ -1,5 +1,5 @@
 ---
-description: Gracefully shut down an agent team, collect final results, and clean up resources
+description: "Gracefully shut down an agent team, collect final results, and clean up resources"
 argument-hint: "[team-name] [--force] [--keep-tasks]"
 ---
 
@@ -14,7 +14,7 @@ Gracefully shut down an active agent team by sending shutdown requests to all te
    - `--force`: skip waiting for graceful shutdown responses
    - `--keep-tasks`: preserve task list after cleanup
 
-2. Read team config from `~/.claude/teams/{team-name}/config.json` using `open`
+2. Read team config from `~/.claude/teams/{team-name}/config.json` using the Read tool
 3. Call `TaskList` to check for in-progress tasks
 
 4. If there are in-progress tasks and `--force` is not set:

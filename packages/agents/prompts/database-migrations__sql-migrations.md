@@ -1,5 +1,19 @@
 ---
 description: SQL database migrations with zero-downtime strategies for PostgreSQL, MySQL, SQL Server
+version: "1.0.0"
+tags:
+  [
+    database,
+    sql,
+    migrations,
+    postgresql,
+    mysql,
+    flyway,
+    liquibase,
+    alembic,
+    zero-downtime,
+  ]
+tool_access: [Read, Write, Edit, Bash, Grep, Glob]
 ---
 
 # SQL Database Migration Strategy and Implementation

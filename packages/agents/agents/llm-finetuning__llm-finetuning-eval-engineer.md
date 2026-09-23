@@ -55,17 +55,17 @@ and every downstream skill assume this phase already ran.
 
 1. **Check for existing traces.** Production or agent spans, or any
    prior run's logged transcripts.
-    - **Traces exist:** run error analysis — open coding on ≥100 real
-      traces (read them, tag failures in your own words, no fixed
-      taxonomy yet), then axial coding to collapse those tags into
-      4–8 named failure buckets. Fewer than 4 means the coding pass
-      was too shallow; more than 8 means buckets need merging.
-    - **No traces yet:** build synthetic goldens instead —
-      dimension-based generation, enumerating the axes that matter
-      (task type, difficulty, edge case, persona) and sampling the
-      cross-product, per `eval-harness-first`'s synthetic-goldens
-      guidance. Free-generated prompts cluster around whatever's
-      easiest to write; the dimension cross-product avoids that.
+   - **Traces exist:** run error analysis — open coding on ≥100 real
+     traces (read them, tag failures in your own words, no fixed
+     taxonomy yet), then axial coding to collapse those tags into
+     4–8 named failure buckets. Fewer than 4 means the coding pass
+     was too shallow; more than 8 means buckets need merging.
+   - **No traces yet:** build synthetic goldens instead —
+     dimension-based generation, enumerating the axes that matter
+     (task type, difficulty, edge case, persona) and sampling the
+     cross-product, per `eval-harness-first`'s synthetic-goldens
+     guidance. Free-generated prompts cluster around whatever's
+     easiest to write; the dimension cross-product avoids that.
 2. **Write one grader per bucket, deterministic-first.** Reach for
    regex, schema validation, or execution-based checks before
    writing a judge prompt — cheaper, reproducible, and no
@@ -105,15 +105,15 @@ the only place it's expected to live:
 
 ```json
 {
-    "task_id": "t-042",
-    "trace_id": "t-042-a3",
-    "messages": [
-        { "role": "user", "content": "..." },
-        { "role": "assistant", "content": "..." }
-    ],
-    "verdict": "pass",
-    "reward": 0.91,
-    "grader": "exact_match"
+  "task_id": "t-042",
+  "trace_id": "t-042-a3",
+  "messages": [
+    {"role": "user", "content": "..."},
+    {"role": "assistant", "content": "..."}
+  ],
+  "verdict": "pass",
+  "reward": 0.91,
+  "grader": "exact_match"
 }
 ```
 
@@ -161,19 +161,19 @@ applying its budget both belong to stage 2, not two separate stages.)
 **Write `promotion-report.md`.** Cover all four applicable stages
 as sections, and end with the terminal verdict contract:
 
-```
-## Verdict
+   ```
+   ## Verdict
 
-REJECT
+   REJECT
 
-Evidence: <the stage and number that produced this verdict>
+   Evidence: <the stage and number that produced this verdict>
 
-Top remediation: <exactly one highest-leverage fix>
-```
+   Top remediation: <exactly one highest-leverage fix>
+   ```
 
-`PROMOTE` needs no remediation line. `REJECT` names exactly one
-top remediation — never a menu of possible fixes — per
-`checkpoint-promotion`'s escalation order.
+   `PROMOTE` needs no remediation line. `REJECT` names exactly one
+   top remediation — never a menu of possible fixes — per
+   `checkpoint-promotion`'s escalation order.
 
 ## Behavioral Traits
 

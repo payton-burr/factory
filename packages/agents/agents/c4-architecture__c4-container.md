@@ -123,7 +123,7 @@ When creating C4 Container-level documentation, follow this structure:
 This container deploys the following components:
 
 - [Component Name]: [Description]
-    - Documentation: [c4-component-name.md](./c4-component-name.md)
+  - Documentation: [c4-component-name.md](./c4-component-name.md)
 
 ## Interfaces
 
@@ -133,8 +133,8 @@ This container deploys the following components:
 - **Description**: [What this interface provides]
 - **Specification**: [Link to OpenAPI/Swagger/API Spec file]
 - **Endpoints**:
-    - `GET /api/resource` - [Description]
-    - `POST /api/resource` - [Description]
+  - `GET /api/resource` - [Description]
+  - `POST /api/resource` - [Description]
 
 ## Dependencies
 

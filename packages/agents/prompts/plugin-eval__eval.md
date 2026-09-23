@@ -3,6 +3,8 @@ description: Evaluate a plugin or skill for quality
 argument-hint: <path> [--depth quick|standard]
 ---
 
+> In the `@factory/agents` package, this plugin's directory (`${CLAUDE_PLUGIN_ROOT}`) is `plugins/plugin-eval/`, two levels above the `evaluation-methodology` skill's directory. Use its absolute path wherever this file refers to the plugin directory.
+
 Run the PluginEval quality evaluation on a plugin or skill directory.
 
 ## Usage

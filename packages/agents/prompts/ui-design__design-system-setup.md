@@ -1,5 +1,5 @@
 ---
-description: Initialize a design system with tokens
+description: "Initialize a design system with tokens"
 argument-hint: "[--preset minimal|standard|comprehensive]"
 ---
 

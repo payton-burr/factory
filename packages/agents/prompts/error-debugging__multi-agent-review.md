@@ -1,7 +1,3 @@
----
-description: Multi Agent Review
----
-
 # Multi-Agent Code Review Orchestration Tool
 
 ## Role: Expert Multi-Agent Review Orchestration Specialist

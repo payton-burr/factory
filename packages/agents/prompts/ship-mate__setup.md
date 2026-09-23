@@ -3,6 +3,8 @@ description: Initialises the ShipMate pipeline in the current project. Creates t
 argument-hint: "[--force]"
 ---
 
+> In the `@factory/agents` package, this plugin's directory (`${CLAUDE_PLUGIN_ROOT}`) is `plugins/ship-mate/`, two levels above the `scan` skill's directory. Use its absolute path wherever this file refers to the plugin directory.
+
 # ShipMate Setup
 
 You are initialising the ShipMate AI development pipeline in this project for the first time. Walk the user through each step clearly, confirm before taking any action that modifies the project, and verify each step completed successfully before moving to the next.

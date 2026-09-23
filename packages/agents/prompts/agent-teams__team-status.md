@@ -1,5 +1,5 @@
 ---
-description: Display team members, task status, and progress for an active agent team
+description: "Display team members, task status, and progress for an active agent team"
 argument-hint: "[team-name] [--tasks] [--members] [--json]"
 ---
 
@@ -17,7 +17,7 @@ Display the current state of an active agent team including members, tasks, and 
    - `--members`: show only member details
    - `--json`: output raw JSON instead of formatted table
 
-2. Read team config from `~/.claude/teams/{team-name}/config.json` using `open`
+2. Read team config from `~/.claude/teams/{team-name}/config.json` using the Read tool
 3. Call `TaskList` to get current task state
 
 ## Phase 2: Status Display
