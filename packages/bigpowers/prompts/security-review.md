@@ -1,0 +1,6 @@
+---
+description: "AI-powered security analysis of code changes — traces data flow, detects injection, auth bypass, secrets exposure, and unsafe deserialization across files. Use when reviewing pending changes, before release-branch, during verify-work Phase 5, during build-epic Step 0 threat modeling, or when the user says \"security review\" or \"scan for vulns\"."
+---
+Use the `security-review` skill. Read its SKILL.md from the available skills, resolve relative paths against that skill's directory, and follow it.
+
+$ARGUMENTS

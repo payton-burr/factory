@@ -1,0 +1,6 @@
+---
+description: "Interactive QA session where user reports bugs or issues conversationally, and the agent logs them to specs/bugs/registry.yaml with a structured audit schema. Explores the codebase in the background for context and domain language. Use when user wants to report bugs, do QA, or mentions \"QA session\"."
+---
+Use the `inspect-quality` skill. Read its SKILL.md from the available skills, resolve relative paths against that skill's directory, and follow it.
+
+$ARGUMENTS

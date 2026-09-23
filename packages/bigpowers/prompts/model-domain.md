@@ -1,0 +1,6 @@
+---
+description: "Grilling session that challenges your plan against the existing domain model, sharpens terminology, and updates specs/tech-architecture/tech-stack.md and specs/adr/ inline as decisions crystallise. Use when user wants to stress-test a plan against their project's domain language and documented decisions."
+---
+Use the `model-domain` skill. Read its SKILL.md from the available skills, resolve relative paths against that skill's directory, and follow it.
+
+$ARGUMENTS

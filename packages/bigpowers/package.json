@@ -1,11 +1,34 @@
 {
   "name": "@factory/bigpowers",
+  "version": "0.0.1",
   "private": true,
-  "type": "module",
+  "description": "bigpowers agent skills, prompt templates, and safety extension packaged for Atomic",
+  "license": "MIT",
+  "keywords": ["atomic-package"],
+  "files": [
+    "skills/",
+    "prompts/",
+    "extensions/",
+    "scripts/",
+    "docs/",
+    "profiles/",
+    "LICENSE",
+    "NOTICES.md",
+    "SKILL-INDEX.md",
+    "UPSTREAM.md",
+    "requirements.txt"
+  ],
   "atomic": {
-    "skills": ["./skills"],
-    "prompts": [],
-    "extensions": [],
+    "skills": [
+      "./skills"
+    ],
+    "prompts": [
+      "./prompts"
+    ],
+    "extensions": [
+      "./extensions/bigpowers.ts"
+    ],
+    "themes": [],
     "workflows": []
   }
 }

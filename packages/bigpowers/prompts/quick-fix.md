@@ -1,0 +1,6 @@
+---
+description: "Streamlined fast-path for trivial data-only fixes — no TDD, no branching ceremony. Collapses 6 skills into 2 for changes that are purely data with no logic risk. Aborts with fallback to investigate-bug if guardrails trigger."
+---
+Use the `quick-fix` skill. Read its SKILL.md from the available skills, resolve relative paths against that skill's directory, and follow it.
+
+$ARGUMENTS

@@ -10,13 +10,14 @@ From the Factory repository root, install the aggregate package:
 atomic install -l .
 ```
 
-Or install only the agents package's skills and prompt templates:
+Or install one child package with all of its resources:
 
 ```sh
 atomic install -l ./packages/agents
+atomic install -l ./packages/bigpowers
 ```
 
-`@factory/agents` is the package name, not a filesystem directory. From another project, use an absolute path to this checkout or its `packages/agents` directory. Avoid registering both the aggregate package and a child package in the same project because they expose overlapping resources.
+`@factory/agents` and `@factory/bigpowers` are package names, not filesystem directories. From another project, use an absolute path to this checkout or to the child package directory. Avoid registering both the aggregate package and a child package in the same project because they expose overlapping resources.
 
 ## Install from private Git
 
@@ -49,7 +50,7 @@ In the consuming project's `.atomic/settings.json`, replace the Factory string e
 }
 ```
 
-Preserve any other settings and package entries. The agents group contains reusable skills; its name does not mean it registers subagents. To select Bigpowers skills instead, use `packages/bigpowers/skills/**`, provided that directory has been populated with usable resources. Include both patterns to select both groups. The entire Git repository is cloned; filters control loading, not download size. Filters can only narrow the resources exposed by the root manifest.
+Preserve any other settings and package entries. The agents group contains reusable skills; its name does not mean it registers subagents. To select Bigpowers skills instead, use `packages/bigpowers/skills/**`. Include both patterns to select both groups. The entire Git repository is cloned; filters control loading, not download size. Filters can only narrow the resources exposed by the root manifest.
 
 Prompts, extensions, themes, and workflows are explicitly disabled in the aggregate manifest. Register resources there when adding those capabilities; populating a nested workspace manifest alone is insufficient.
 
@@ -66,12 +67,33 @@ cp -Rn /path/to/factory/packages/agents/agents/. .atomic/agents/factory/
 
 The copy command leaves existing definitions unchanged; review updates before replacing installed files. Restart Atomic and check `/agents`. For global availability, use `~/.atomic/agent/agents/factory/` as the destination instead. Copying definitions does not validate their tool or model compatibility with the installed Atomic version.
 
+## Bigpowers resources
+
+`packages/bigpowers/` is the Atomic port of the [bigpowers pi package](https://github.com/danielvm-git/bigpowers/tree/main#-pi-support). Installing it directly registers 81 skills, one prompt template per skill (for example `/survey-context`), and the `extensions/bigpowers.ts` extension. The aggregate root package exposes only the skills.
+
+The package is self-contained. Skills run bundled scripts through skill-relative paths such as `../../scripts/bp-timing.sh`, and those scripts treat the working directory as the project. Upstream's `bigpowers init` step, which symlinks `scripts/` into each project, is not needed. [UPSTREAM.md](packages/bigpowers/UPSTREAM.md) records the source commit and every local change.
+
+The extension adds a `bigpowers_skill` tool and blocks some Bash commands. It rejects destructive Git commands such as `git reset --hard`, pushes to `main` or `master`, commits on `main` or `master`, and commit messages that are not Conventional Commits. To keep the skills and prompts without the guards, filter the extension out in the consuming project's settings:
+
+```json
+{
+  "packages": [
+    {
+      "source": "/path/to/factory/packages/bigpowers",
+      "extensions": []
+    }
+  ]
+}
+```
+
+Most scripts need `python3` with PyYAML; see [UPSTREAM.md](packages/bigpowers/UPSTREAM.md#requirements).
+
 ## Verify changes
 
 ```sh
 npm pack --dry-run --ignore-scripts
 ```
 
-Inspect the package file list before distributing changes. The root `pnpm test` command currently discovers no tests, so a successful exit does not establish test coverage. The root npm file allowlist keeps local research, Atomic session files, and development configuration out of the tarball. Git consumers still receive committed repository files.
+Inspect the package file list before distributing changes. `pnpm test` runs `tests/*.test.mjs`, which currently cover only the Bigpowers package. The root npm file allowlist keeps local research, Atomic session files, and development configuration out of the tarball. Git consumers still receive committed repository files.
 
 Before distributing an update, test a clean copy with Atomic and check the intended skills, prompt templates, and manually installed subagents. Check each resource group for machine-local paths or symlinks; portability of one group does not establish portability of the others. Never run setup scripts as part of package installation.

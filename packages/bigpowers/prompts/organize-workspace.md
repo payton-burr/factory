@@ -1,0 +1,6 @@
+---
+description: "Scans the active workspace for disposable artifacts—logs, caches, stale build output, and stray draft markdown—and proposes consolidation of scattered assets. Produces a reviewable list, asks for explicit confirmation before any delete or move, and optionally revises .gitignore. Use when the user says \"clean my room\", \"organize workspace\", \"workspace cleanup\", \"remove temp files\", \"organize assets\", \"gitignore\", or wants a safe tidy pass."
+---
+Use the `organize-workspace` skill. Read its SKILL.md from the available skills, resolve relative paths against that skill's directory, and follow it.
+
+$ARGUMENTS
