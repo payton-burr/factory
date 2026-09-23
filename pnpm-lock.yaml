@@ -11,3 +11,5 @@ importers:
   packages/agents: {}
 
   packages/bigpowers: {}
+
+  packages/custom: {}

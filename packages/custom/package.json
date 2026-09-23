@@ -1,0 +1,11 @@
+{
+  "name": "@factory/custom",
+  "private": true,
+  "type": "module",
+  "atomic": {
+    "skills": ["./skills"],
+    "prompts": [],
+    "extensions": ["./extensions"],
+    "workflows": []
+  }
+}
